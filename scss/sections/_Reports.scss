@@ -1,0 +1,136 @@
+@use '../custom' as *;
+
+.Tabhead {
+    padding: 20px 25px;
+    margin: 20rem;
+    border-radius:1px;
+    box-shadow: 1px 0px 1px 1px rgba(0, 0, 0, 0.295);
+}
+
+#CMBReport  {
+    display: none;
+}
+
+#ACPSReport  {
+    display: none;
+}
+
+#ZeroFiveReport {
+    display: none;
+}
+
+#BHWSAReport {
+    display: none;
+}
+
+#PADReport {
+    display: none;
+}
+#PregTrack {
+    display: none;
+}
+
+.brgyselector {
+    width: 15rem;
+
+    .form-select {
+        font-weight: 100;
+        font-size: 0.8rem;
+    }
+
+    .total {
+        width: 15rem;
+        
+    }
+}
+
+.Totalpopulation {
+    width: 15rem;
+}
+
+
+// for BHWS ACCOMPLISHMENT Report
+.BHWAccomplishment1 {
+    margin-left: 34.6rem;
+    width: 10rem;
+}
+.BHWAccomplishment2 {
+    margin-left: 35.8rem;
+    width: 10rem;
+}
+.BHWAccomplishment3 {
+    margin-left: 20rem;
+    width: 10rem;
+}
+.BHWAccomplishment4 {
+    margin-left: 35.8rem;
+    width: 10rem;
+}
+.BHWAccomplishment5 {
+    margin-left: 35.5rem;
+    width: 10rem;
+}
+.BHWAccomplishment6 {
+    margin-left: 30.6rem;
+    width: 10rem;
+}
+.BHWAccomplishment7 {
+    margin-left: 30rem;
+    width: 10rem;
+}
+.BHWAccomplishment8 {
+    margin-left: 35.8rem;
+    width: 10rem;
+}
+.BHWAccomplishment9 {
+    margin-left: 34.6rem;
+    width: 10rem;
+}
+.label {
+    margin-left: 5rem;
+}
+.BHWAccomplishment11 {
+    margin-left: 36.5rem;
+    width: 10rem;
+}
+.BHWAccomplishment12 {
+    margin-left: 36.2rem;
+    width: 10rem;
+}
+.BHWAccomplishment13 {
+    margin-left: 36.2rem;
+    width: 10rem;
+}
+.BHWAccomplishment14 {
+    margin-left: 36.2rem;
+    width: 10rem;
+}
+.BHWAccomplishment15 {
+    margin-left: 36rem;
+    width: 10rem;
+}
+
+
+
+.total {
+    width: 15rem;
+    
+}
+// for ACPS Report
+.DateSelector {
+    width: 5rem;
+    margin-left: 30rem;
+
+}
+// for 0-71 report
+.zerotofive {
+    .titlehead{
+
+        font-size: 0.9rem;
+    }
+
+}
+
+
+
+

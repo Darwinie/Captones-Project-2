@@ -1,0 +1,46 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+
+
+
+#Patient-Table {
+    display: none;
+}
+#Dental-Table {
+    display: none;
+}
+#Immunization-Table {
+    display: none;
+}
+#Pimmunization-Table {
+    display: none;
+}
+#Deworming-Table {
+    display: none;
+}
+#Vitamins-Table {
+    display: none;
+}
+#TB-Table {
+    display: none;
+}
+#PreNatal-Table {
+    display: none;
+}
+#PostNatal-Table {
+    display: none;
+}
+#FamilyPlanning-Table {
+    display: none;
+}
+#MedicineInventory-Table {
+    display: none;
+}
+
+.table-wrapper {
+    background: #fff;
+    padding: 20px 25px;
+    margin: 30px 0;
+    border-radius:1px;
+    box-shadow: 1px 0px 1px 1px rgba(0, 0, 0, 0.295);
+}
