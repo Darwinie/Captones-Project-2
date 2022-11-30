@@ -88,7 +88,7 @@ include('Modals/adduser.php');
             <tbody>
                 <?php do{ ?>
                 <tr>
-                        <td><?php echo $row['ID']; ?></td>
+                        <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['last_name']. ' ' .$row['first_name'];?></td>
                         <td><?php echo $row['contact_no']; ?></td>
                         <td><?php echo $row['adress']; ?></td>
@@ -96,10 +96,8 @@ include('Modals/adduser.php');
                         <td><?php echo $row['access']; ?></td>
                         <td>
                             <div class="col-2">
-                            <a href="view_medicalrecord.php?id=<?php echo $row['ID']; ?>" class="btn btn-primary mb-2">view</a>
-                            </div>
-                            
-                             
+                               <a href="viewUserAccountsDetails.php?id=<?php echo $row['id']; ?>" class="btn btn-primary mb-2">view</a>
+                            </div>   
                         </td> 
                   </tr>
                   <?php }while($row = $user_main->fetch_assoc()); ?>

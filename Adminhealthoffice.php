@@ -4,8 +4,9 @@
 if(!isset($_SESSION)){
     session_start();
 
-include_once("connections/connections.php");
-$con = connection();
+//     for audit trail
+// // include_once("connections/connections.php");
+// // $con = connection();
 
 }
 
@@ -31,9 +32,11 @@ $con = connection();
 <body>
 <?php
 
-// $sql = "INSERT INTO `tbl_logs`(`user_id`,`action_made`) VALUES ('<?php echo $row['ID']; ?>','added patient information in medical record')";
-// $query = $con->query($sql) or die ($con->error);
+// for audit trail
+// $user_id = session_id();
 
+// $sql = "INSERT INTO `tbl_logs`(`user_id`,`action_made`) VALUES ('$user_id','added patient information in medical record')";
+// $query = $con->query($sql) or die ($con->error);
 ?>
 
 
