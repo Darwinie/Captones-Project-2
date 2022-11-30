@@ -1,14 +1,10 @@
 <?php
-
 include_once("connections/connections.php");
 $con = connection();
 
 if(!isset($_SESSION)){
   session_start();
-
 }
-
-
 if(isset($_POST['login'])){
 
     $username = $_POST['username'];
@@ -20,19 +16,33 @@ if(isset($_POST['login'])){
   $total = $user->num_rows;
 
   if($total > 0){
-    $_SESSION['UserLogin'] = $row['username'];
-    $_SESSION['Access'] = $row['access'];
+    $_SESSION['username'] = $row['username'];
+    $_SESSION['access'] = $row['access'];
 
     echo header("Location: Adminhealthoffice.php");
   }else{
-    echo "NO username found";
+    echo "Please check your username and password";
   }
-
-
 }
-
-
 ?>
+ <div class="wrapper">
+        <div class="heading">
+            <h1>Login Form</h1>
+        </div>
+       <div class="form">
+            <form action="" method="post">
+                <span>
+                    <i class="fa fa-user"></i>
+                    <input type="text" placeholder="Username" name="username" id="username">
+                </span><br>
+                <span>
+                   <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Password" name="password" id="password">
+                </span><br>
+                    <button type="submit" name="login">login</button>
+           </form>
+       </div>
+    </div>
 
 <!DOCTYPE html>
 <html lang="en">

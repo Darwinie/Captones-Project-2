@@ -60,7 +60,7 @@ $row = $patient_information->fetch_assoc();
           <div class="row">
               <div class="col-sm-6">
                  <h2>Backup and<b> Restore</b></h2>
-                 <button class="btn btn-success">Create Backup</button> 
+                 <a href="backupdatabase.php">Create Backup</a>
                   
               </div>
 

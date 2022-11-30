@@ -50,7 +50,7 @@ $row = $patient_information->fetch_assoc();
                         </div> 
                         <div class="col-md-3">
                             <label for="inputFamilySerial" class="form-label fw-bold">Family Serial Number</label>
-                            <input type="hidden" class="form-control" name="id" value="<?php echo $row['id']; ?>" id="">
+                            <input type="hidden" class="form-control" name="id" value="<?php echo $row['id']; ?>">
                             <input type="text" class="form-control" name="familyserial" value="<?php echo $row['family_number']; ?>" id="inputFamilySerial">    
                         </div>                                            
                         <div class="col-md-2">
@@ -241,9 +241,9 @@ $row = $patient_information->fetch_assoc();
                         <div class="col-md-2">
                             <label for="inputTransaction" class="form-label">Mode of Transaction</label>
                             <select id="inputTransaction" name="transactionmode" class="form-select">
-                              <option <?php echo ($row['mode_transaction'] == "Walk-in")? 'selected' : '' ?>>Walk-in</option>
-                              <option <?php echo ($row['mode_transaction'] == "Visited")? 'selected' : '' ?>>Visited</option>
-                              <option <?php echo ($row['mode_transaction'] == "Referral")? 'selected' : '' ?>>Referral</option>
+                              <option>Walk-in</option>
+                              <option>Visited</option>
+                              <option>Referral</option>
                             </select>
                         </div>
                         <div class="col-3 text-end">
@@ -253,88 +253,88 @@ $row = $patient_information->fetch_assoc();
                         </div>
                         <div class="col-3">
                             <label for="inputReferredFrom" class="form-label">REFERRED FROM</label>
-                            <input type="text" class="form-control" name="referredfrom" value="<?php echo $row['referred_from']; ?>" id="inputReferredFrom">
+                            <input type="text" class="form-control" name="referredfrom" id="inputReferredFrom">
                         </div>
                         <div class="col-3">
                             <label for="inputReferredTo" class="form-label">REFERRED TO</label>
-                            <input type="text" class="form-control" name="referredto" value="<?php echo $row['referred_to']; ?>" id="inputReferredTo">
+                            <input type="text" class="form-control" name="referredto" id="inputReferredTo">
                         </div>
                         <div class="col-3" style="margin-left:28rem;">
                             <label for="ReasonRefer" class="form-label">Reason(s) for Referral</label>
-                            <textarea class="form-control" name="referralreason" value="<?php echo $row['referral_reason']; ?>" id="ReasonRefer" rows="1"></textarea>
+                            <textarea class="form-control" name="referralreason" id="ReasonRefer" rows="1"></textarea>
                         </div>
                         <div class="col-3">
                             <label for="inputReferredBy" class="form-label">Referred by</label>
-                            <input type="text" class="form-control" name="referredby" value="<?php echo $row['referred_by']; ?>" id="inputReferredBy">
+                            <input type="text" class="form-control" name="referredby"  id="inputReferredBy">
                         </div>
                         <div class="col-3">
                             <label for="inputDateConsul" class="form-label">Date of Consultation</label>
-                            <input type="text" class="form-control" name="consultationdate" value="<?php echo $row['consultation_date']; ?>" id="inputDateConsul" placeholder="mm/dd/yyyy">
+                            <input type="text" class="form-control" name="consultationdate"  id="inputDateConsul" placeholder="mm/dd/yyyy">
                         </div>
                         <div class="col-3">
                             <label for="inputConsulTime" class="form-label">Consultation Time</label>
-                            <input type="text" class="form-control" name="consultationtime" value="<?php echo $row['consultation_time']; ?>" id="inputConsulTime" placeholder="AM/PM">
+                            <input type="text" class="form-control" name="consultationtime" id="inputConsulTime" placeholder="AM/PM">
                         </div>
                         <div class="col-3">
                             <label for="inputAttendingprovider" class="form-label">Name of Attending Provider</label>
-                            <input type="text" class="form-control" name="attendingprovider" value="<?php echo $row['attending_provider']; ?>" id="inputAttendingprovider">
+                            <input type="text" class="form-control" name="attendingprovider" id="inputAttendingprovider">
                         </div>
                         <div class="col-3">
                             <label for="inputNatureVisit" class="form-label">Nature of Visit</label>
                             <select id="inputNatureVisit" name="naturevisit" class="form-select">
-                              <option <?php echo ($row['nature_visit'] == "New Consultation/Case")? 'selected' : '' ?>>New Consultation/Case</option>
-                              <option <?php echo ($row['nature_visit'] == "New Admission")? 'selected' : '' ?>>New Admission</option>
-                              <option <?php echo ($row['nature_visit'] == "New Follow-up visit")? 'selected' : '' ?>>Follow-up visit</option>
+                              <option>New Consultation/Case</option>
+                              <option>New Admission</option>
+                              <option>Follow-up visit</option>
                             </select>
                         </div>
                         <div class="col-3">
                             <label for="inputBloodPressure" class="form-label">Blood Pressure</label>
-                            <input type="text" class="form-control" name="bloodpressure" value="<?php echo $row['bloodpressure']; ?>" id="inputBloodPressure">
+                            <input type="text" class="form-control" name="bloodpressure" id="inputBloodPressure">
                         </div>
                         <div class="col-3">
                             <label for="inputTemperature" class="form-label">Temperature</label>
-                            <input type="text" class="form-control" name="temperature" value="<?php echo $row['temperature']; ?>" id="inputTemperature">
+                            <input type="text" class="form-control" name="temperature" id="inputTemperature">
                         </div>
                         <div class="col-3">
                             <label for="inputRespiratoryR" class="form-label">Respiratory Rate</label>
-                            <input type="text" name="respiratoryrate" class="form-control" value="<?php echo $row['respiratory_rate']; ?>" id="inputRespiratoryR">
+                            <input type="text" name="respiratoryrate" class="form-control" id="inputRespiratoryR">
                         </div>
                         <div class="col-3">
                             <label for="inputPulseR" class="form-label">Pulse Rate</label>
-                            <input type="text" name="pulserate" class="form-control" value="<?php echo $row['pulse_rate']; ?>" id="inputPulseR">
+                            <input type="text" name="pulserate" class="form-control" id="inputPulseR">
                         </div>
                         <div class="col-3">
                             <label for="inputHeight" class="form-label">Height (cm)</label>
-                            <input type="text" name="height" class="form-control" value="<?php echo $row['height']; ?>" id="inputHeight">
+                            <input type="text" name="height" class="form-control" id="inputHeight">
                         </div>
                         <div class="col-3">
                             <label for="inputWeight" class="form-label">Weight (kg)</label>
-                            <input type="text" name="weight" class="form-control" value="<?php echo $row['weight']; ?>" id="inputWeight">
+                            <input type="text" name="weight" class="form-control" id="inputWeight">
                         </div>
                         <div></div>
                         <div class="col-4">
                             <label for="ChiefComplaints" class="form-label">Chief Complaints</label>
-                            <textarea class="form-control" name="chiefcomplaints" value="<?php echo $row['chief_complaints']; ?>" id="ChiefComplaints" rows="1"></textarea>
+                            <textarea class="form-control" name="chiefcomplaints" id="ChiefComplaints" rows="1"></textarea>
                         </div>
                         <div class="col-4">
                             <label for="Diagnosis" class="form-label">Diagnosis</label>
-                            <textarea class="form-control"  name="diagnosis" value="<?php echo $row['diagnosis']; ?>" id="Diagnosis" rows="1"></textarea>
+                            <textarea class="form-control"  name="diagnosis" id="Diagnosis" rows="1"></textarea>
                         </div>
                         <div class="col-4">
                             <label for="MedicationTreatment" class="form-label">Medication/Treatment</label>
-                            <textarea class="form-control" name="medicationtreatment" value="<?php echo $row['medication_treatment']; ?>" id="MedicationTreatment" rows="1"></textarea>
+                            <textarea class="form-control" name="medicationtreatment" id="MedicationTreatment" rows="1"></textarea>
                         </div>
                         <div class="col-4">
                             <label for="inputHealthProvider" class="form-label">Name of Health Care Provider</label>
-                            <input type="text" name="healthcareprovider" class="form-control" value="<?php echo $row['healthcare_provider']; ?>" id="inputHealthProvider">
+                            <input type="text" name="healthcareprovider" class="form-control" id="inputHealthProvider">
                         </div>
                         <div class="col-4">
                             <label for="LabFindings" class="form-label">Laboratory Findings/Impression</label>
-                            <textarea class="form-control" name="laboratoryfindings" value="<?php echo $row['laboratory_findings']; ?>" id="LabFindings" rows="1"></textarea>
+                            <textarea class="form-control" name="laboratoryfindings" id="LabFindings" rows="1"></textarea>
                         </div>
                         <div class="col-4">
                             <label for="PerformedLabTest" class="form-label">Performed Laboratory Test</label>
-                            <textarea class="form-control" name="performedlaboratory" value="<?php echo $row['performedlaboratory_tes']; ?>" id="PerformedLabTest" rows="1"></textarea>
+                            <textarea class="form-control" name="performedlaboratory" id="PerformedLabTest" rows="1"></textarea>
                         </div>
                         <div class="col-4">
                             <button type="submit" name="submit" class="btn btn-primary">Submit</button>

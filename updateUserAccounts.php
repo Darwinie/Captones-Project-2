@@ -22,7 +22,7 @@ if(isset($_POST['submit'])){
 
   
 
-   echo header("location: Adminhealthoffice.php");
+   echo header("location: usermaintenanceTable.php");
 }
 ?>
 

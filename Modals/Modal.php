@@ -49,6 +49,14 @@ $con = connection();
                             <label for="inputFamilyCode" class="form-label fw-bold">Family Code</label>
                             <input type="text" class="form-control" name="familycode" id="familycode">
                         </div>
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="inputFormtype" class="form-label fw-bold">Form Type</label>
+                            <select id="inputFormtype" name="formtype" class="form-select">
+                              <option selected>General</option>
+                            </select>
+                        </div>
                     </div>
                         <h5 class="ITRtitle justify-content-center text-center shadow">PATIENT ENROLLMENT RECORD</h5>
                         <div class="col-md-3">
@@ -108,7 +116,7 @@ $con = connection();
                         </div>
                         <div class="col-2">
                           <label for="inputBirthdate" class="form-label">Birth Date</label>
-                          <input type="text" class="form-control" name="birthdate" id="inputBirthdate" placeholder="mm/dd/yyyy">
+                          <input type="date" class="form-control" name="birthdate" id="inputBirthdate" placeholder="mm/dd/yyyy">
                         </div>
                         <div class="col-md-4">
                           <label for="inputBirthPlace" class="form-label">Birthplace</label>
@@ -120,7 +128,7 @@ $con = connection();
                         </div>
                         <div class="col-2">
                             <label for="inputBirthdateSpouse" class="form-label">Birth Date of Spouse</label>
-                            <input type="text" class="form-control" name="spousebirthdate" id="inputBirthdateSpouse" placeholder="mm/dd/yyyy">
+                            <input type="date" class="form-control" name="spousebirthdate" id="inputBirthdateSpouse" placeholder="mm/dd/yyyy">
                         </div>
                         <div class="col-md-3">
                             <label for="inputEducationAttainment" class="form-label">Educational Attainment</label>
@@ -153,7 +161,7 @@ $con = connection();
                         </div>
                         <div class="col-2">
                             <label for="inputMotherBirthdate" class="form-label">Mother's Birth Date</label>
-                            <input type="text" class="form-control" name="motherbirthdate" id="inputMotherBirthdate" placeholder="mm/dd/yyyy">
+                            <input type="date" class="form-control" name="motherbirthdate" id="inputMotherBirthdate" placeholder="mm/dd/yyyy">
                         </div>
                         <div class="col-md-4">
                             <label for="inputFathersName" class="form-label">Father's Name</label>
@@ -161,7 +169,7 @@ $con = connection();
                         </div>
                         <div class="col-2">
                             <label for="inputFatherBirthdate" class="form-label">Father's Birth Date</label>
-                            <input type="text" class="form-control" name="fatherbirthdate" id="inputFatherBirthdate" placeholder="mm/dd/yyyy">
+                            <input type="date" class="form-control" name="fatherbirthdate" id="inputFatherBirthdate" placeholder="mm/dd/yyyy">
                         </div>
                         <div class="col-md-3">
                             <label for="inputNHTS" class="form-label">DSWD NHTS</label>
@@ -261,7 +269,7 @@ $con = connection();
                         </div>
                         <div class="col-3">
                             <label for="inputDateConsul" class="form-label">Date of Consultation</label>
-                            <input type="text" name="consultationdate" class="form-control" id="inputDateConsul" placeholder="mm/dd/yyyy">
+                            <input type="date" name="consultationdate" class="form-control" id="inputDateConsul" placeholder="mm/dd/yyyy">
                         </div>
                         <div class="col-3">
                             <label for="inputConsulTime" class="form-label">Consultation Time</label>

@@ -34,7 +34,7 @@ $con = connection();
             <div class="card">
                 <div class="card-body">
                     
-                    <form class="row g-3 mt-4" action="insertpatientinformation.php" method="post">
+                    <form class="row g-3 mt-4" action="insert_familyplanning.php" method="post">
 
                     <div class="row">
                         <div class="col-md-3">
@@ -44,6 +44,18 @@ $con = connection();
                         <div class="col-md-2">
                             <label for="inputFamilyCode" class="form-label fw-bold">Family Code</label>
                             <input type="text" class="form-control" name="familycode" id="familycode">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="inputbarangay" class="form-label fw-bold">Barangay</label>
+                            <input type="text" class="form-control" name="barangay" id="barangay">
+                        </div>
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="inputFormtype" class="form-label fw-bold">Form Type</label>
+                            <select id="inputFormtype" name="formtype" class="form-select">
+                              <option selected>Family Planning</option>
+                            </select>
                         </div>
                     </div>
                         <h5 class="ITRtitle justify-content-center text-center shadow">PATIENT ENROLLMENT RECORD</h5>
@@ -104,7 +116,7 @@ $con = connection();
                         </div>
                         <div class="col-2">
                           <label for="inputBirthdate" class="form-label">Birth Date</label>
-                          <input type="text" class="form-control" name="birthdate" id="inputBirthdate" placeholder="mm/dd/yyyy">
+                          <input type="date" class="form-control" name="birthdate" id="inputBirthdate" placeholder="mm/dd/yyyy">
                         </div>
                         <div class="col-md-4">
                           <label for="inputBirthPlace" class="form-label">Birthplace</label>
@@ -116,7 +128,7 @@ $con = connection();
                         </div>
                         <div class="col-2">
                             <label for="inputBirthdateSpouse" class="form-label">Birth Date of Spouse</label>
-                            <input type="text" class="form-control" name="spousebirthdate" id="inputBirthdateSpouse" placeholder="mm/dd/yyyy">
+                            <input type="date" class="form-control" name="spousebirthdate" id="inputBirthdateSpouse" placeholder="mm/dd/yyyy">
                         </div>
                         <div class="col-md-3">
                             <label for="inputEducationAttainment" class="form-label">Educational Attainment</label>
@@ -149,7 +161,7 @@ $con = connection();
                         </div>
                         <div class="col-2">
                             <label for="inputMotherBirthdate" class="form-label">Mother's Birth Date</label>
-                            <input type="text" class="form-control" name="motherbirthdate" id="inputMotherBirthdate" placeholder="mm/dd/yyyy">
+                            <input type="date" class="form-control" name="motherbirthdate" id="inputMotherBirthdate" placeholder="mm/dd/yyyy">
                         </div>
                         <div class="col-md-4">
                             <label for="inputFathersName" class="form-label">Father's Name</label>
@@ -157,7 +169,7 @@ $con = connection();
                         </div>
                         <div class="col-2">
                             <label for="inputFatherBirthdate" class="form-label">Father's Birth Date</label>
-                            <input type="text" class="form-control" name="fatherbirthdate" id="inputFatherBirthdate" placeholder="mm/dd/yyyy">
+                            <input type="date" class="form-control" name="fatherbirthdate" id="inputFatherBirthdate" placeholder="mm/dd/yyyy">
                         </div>
                         <div class="col-md-3">
                             <label for="inputNHTS" class="form-label">DSWD NHTS</label>
@@ -226,7 +238,7 @@ $con = connection();
                             <label for="inputAddress" class="form-label">Residential Address</label>
                             <input type="text" class="form-control" name="address" id="inputAddress" placeholder="1234 Main St">
                         </div> -->
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <label for="inputTransaction" class="form-label">Mode of Transaction</label>
                             <select id="inputTransaction" name="transactionmode" class="form-select">
                               <option>Walk-in</option>
@@ -234,34 +246,9 @@ $con = connection();
                               <option>Referral</option>
                             </select>
                         </div>
-                        <div class="col-3 text-end">
-                            <label for="inputReferredFrom" class="form-label">For REFERRAL</label>
-                            <br>
-                            <label for="inputReferredFrom" class="form-label">transaction only:</label>
-                        </div>
-                        <div class="col-3">
-                            <label for="inputReferredFrom" class="form-label">REFERRED FROM</label>
-                            <input type="text" name="referredfrom" class="form-control" id="inputReferredFrom">
-                        </div>
-                        <div class="col-3">
-                            <label for="inputReferredTo" class="form-label">REFERRED TO</label>
-                            <input type="text" name="referredto" class="form-control" id="inputReferredTo">
-                        </div>
-                        <div class="col-3" style="margin-left:28rem;">
-                            <label for="ReasonRefer" class="form-label">Reason(s) for Referral</label>
-                            <textarea class="form-control" name="referralreason" id="ReasonRefer" rows="1"></textarea>
-                        </div>
-                        <div class="col-3">
-                            <label for="inputReferredBy" class="form-label">Referred by</label>
-                            <input type="text" name="referredby" class="form-control" id="inputReferredBy">
-                        </div>
                         <div class="col-3">
                             <label for="inputDateConsul" class="form-label">Date of Consultation</label>
-                            <input type="text" name="consultationdate" class="form-control" id="inputDateConsul" placeholder="mm/dd/yyyy">
-                        </div>
-                        <div class="col-3">
-                            <label for="inputConsulTime" class="form-label">Consultation Time</label>
-                            <input type="text" name="consultationtime" class="form-control" id="inputConsulTime" placeholder="AM/PM">
+                            <input type="date" name="consultationdate" class="form-control" id="inputDateConsul" placeholder="mm/dd/yyyy">
                         </div>
                         <div class="col-3">
                             <label for="inputAttendingprovider" class="form-label">Name of Attending Provider</label>
@@ -276,53 +263,33 @@ $con = connection();
                             </select>
                         </div>
                         <div class="col-3">
-                            <label for="inputBloodPressure" class="form-label">Blood Pressure</label>
-                            <input type="text" name="bloodpressure" class="form-control" id="inputBloodPressure">
+                            <label for="inputBloodPressure" class="form-label">Type of Client</label>
+                            <input type="text" name="typeclient" class="form-control" id="inputBloodPressure">
                         </div>
                         <div class="col-3">
-                            <label for="inputTemperature" class="form-label">Temperature</label>
-                            <input type="text" name="temperature" class="form-control" id="inputTemperature">
+                            <label for="inputNatureVisit" class="form-label">Family Planning Method</label>
+                            <select id="inputNatureVisit" name="fpmethod" class="form-select">
+                              <option selected>Select family planning method</option>
+                              <option>BTL</option>
+                              <option>IUD</option>
+                              <option>PILLS</option>
+                              <option>INJECTABLE</option>
+                              <option>CONDOM</option>
+                              <option>IMPLANT</option>
+                              <option>FAB</option>
+                            </select>
                         </div>
                         <div class="col-3">
-                            <label for="inputRespiratoryR" class="form-label">Respiratory Rate</label>
-                            <input type="text" name="respiratoryrate" class="form-control" id="inputRespiratoryR">
+                            <label for="inputRespiratoryR" class="form-label">Reason if Drop out</label>
+                            <input type="text" name="dropoutreason" class="form-control" id="inputRespiratoryR">
                         </div>
                         <div class="col-3">
-                            <label for="inputPulseR" class="form-label">Pulse Rate</label>
-                            <input type="text" name="pulserate" class="form-control" id="inputPulseR">
-                        </div>
-                        <div class="col-3">
-                            <label for="inputHeight" class="form-label">Height (cm)</label>
-                            <input type="text" name="height" class="form-control" id="inputHeight">
-                        </div>
-                        <div class="col-3">
-                            <label for="inputWeight" class="form-label">Weight (kg)</label>
-                            <input type="text" name="weight" class="form-control" id="inputWeight">
-                        </div>
-                        <div></div>
-                        <div class="col-4">
-                            <label for="ChiefComplaints" class="form-label">Chief Complaints</label>
-                            <textarea class="form-control" name="chiefcomplaints" id="ChiefComplaints" rows="1"></textarea>
+                            <label for="inputPulseR" class="form-label">Schedule of next Visit</label>
+                            <input type="date" name="schednextvisit" class="form-control" id="inputPulseR">
                         </div>
                         <div class="col-4">
-                            <label for="Diagnosis" class="form-label">Diagnosis</label>
-                            <textarea class="form-control" name="diagnosis" id="Diagnosis" rows="1"></textarea>
                         </div>
                         <div class="col-4">
-                            <label for="MedicationTreatment" class="form-label">Medication/Treatment</label>
-                            <textarea class="form-control" name="medicationtreatment" id="MedicationTreatment" rows="1"></textarea>
-                        </div>
-                        <div class="col-4">
-                            <label for="inputHealthProvider" class="form-label">Name of Health Care Provider</label>
-                            <input type="text" name="healthcareprovider" class="form-control" id="inputHealthProvider">
-                        </div>
-                        <div class="col-4">
-                            <label for="LabFindings" class="form-label">Laboratory Findings/Impression</label>
-                            <textarea class="form-control" name="laboratoryfindings" id="LabFindings" rows="1"></textarea>
-                        </div>
-                        <div class="col-4">
-                            <label for="PerformedLabTest" class="form-label">Performed Laboratory Test</label>
-                            <textarea class="form-control" name="performedlaboratory" id="PerformedLabTest" rows="1"></textarea>
                         </div>
                         <div class="col-4">
                             <button type="submit" name="submit" class="btn btn-primary">Submit</button>

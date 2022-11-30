@@ -41,6 +41,14 @@
                           <label for="inputFamilyCode" class="form-label fw-bold">Family Code</label>
                           <input type="text" class="form-control" name="familycode" id="familycode">
                       </div>
+                      <div class="col-md-4">
+                      </div>
+                      <div class="col-md-3">
+                          <label for="inputFormtype" class="form-label fw-bold">Form Type</label>
+                          <select id="inputFormtype" name="formtype" class="form-select">
+                            <option selected>TB DOTS</option>
+                          </select>
+                      </div>
                   </div>
                       <h5 class="ITRtitle justify-content-center text-center shadow">PATIENT ENROLLMENT RECORD</h5>
                       <div class="col-md-3">
@@ -63,6 +71,7 @@
                       <div class="col-md-2">
                           <label for="inputSex" class="form-label">Sex</label>
                           <select id="inputSex" name="sex" class="form-select">
+                          <option selected>Select Gender</option>
                           <option>Male</option>
                           <option>Female</option>
                           </select>
@@ -100,7 +109,7 @@
                       </div>
                       <div class="col-2">
                         <label for="inputBirthdate" class="form-label">Birth Date</label>
-                        <input type="text" class="form-control" name="birthdate" id="inputBirthdate" placeholder="mm/dd/yyyy">
+                        <input type="date" class="form-control" name="birthdate" id="inputBirthdate" placeholder="mm/dd/yyyy">
                       </div>
                       <div class="col-md-4">
                         <label for="inputBirthPlace" class="form-label">Birthplace</label>
@@ -112,11 +121,12 @@
                       </div>
                       <div class="col-2">
                           <label for="inputBirthdateSpouse" class="form-label">Birth Date of Spouse</label>
-                          <input type="text" class="form-control" name="spousebirthdate" id="inputBirthdateSpouse" placeholder="mm/dd/yyyy">
+                          <input type="date" class="form-control" name="spousebirthdate" id="inputBirthdateSpouse" placeholder="mm/dd/yyyy">
                       </div>
                       <div class="col-md-3">
                           <label for="inputEducationAttainment" class="form-label">Educational Attainment</label>
                           <select id="inputEducationAttainment" name="educationalattainment" class="form-select">
+                            <option selected>Select Educational Attainment</option> 
                             <option>No Formal Education</option>
                             <option>Elementary</option>
                             <option>HighSchool</option>
@@ -128,6 +138,7 @@
                       <div class="col-md-3">
                           <label for="inputFamilyMember" class="form-label">Family Member</label>
                           <select id="inputFamilyMember" name="familymember" class="form-select">
+                            <option selected>Select family member type</option>  
                             <option>Father</option>
                             <option>Mother</option>
                             <option>Son</option>
@@ -145,7 +156,7 @@
                       </div>
                       <div class="col-2">
                           <label for="inputMotherBirthdate" class="form-label">Mother's Birth Date</label>
-                          <input type="text" class="form-control" name="motherbirthdate" id="inputMotherBirthdate" placeholder="mm/dd/yyyy">
+                          <input type="date" class="form-control" name="motherbirthdate" id="inputMotherBirthdate" placeholder="mm/dd/yyyy">
                       </div>
                       <div class="col-md-4">
                           <label for="inputFathersName" class="form-label">Father's Name</label>
@@ -153,11 +164,12 @@
                       </div>
                       <div class="col-2">
                           <label for="inputFatherBirthdate" class="form-label">Father's Birth Date</label>
-                          <input type="text" class="form-control" name="fatherbirthdate" id="inputFatherBirthdate" placeholder="mm/dd/yyyy">
+                          <input type="date" class="form-control" name="fatherbirthdate" id="inputFatherBirthdate" placeholder="mm/dd/yyyy">
                       </div>
                       <div class="col-md-3">
                           <label for="inputNHTS" class="form-label">DSWD NHTS</label>
                           <select id="inputNHTS" name="dswdnhts" class="form-select">
+                            <option selected>Select</option>  
                             <option>Yes</option>
                             <option>No</option>
                           </select>
@@ -169,6 +181,7 @@
                       <div class="col-md-3">
                           <label for="input4ps" class="form-label">4ps Member</label>
                           <select id="input4ps" name="4ps" class="form-select">
+                            <option selected>Select</option>  
                             <option>Yes</option>
                             <option>No</option>
                           </select>
@@ -180,6 +193,7 @@
                       <div class="col-md-3">
                           <label for="inputPhilhealth" class="form-label">PhilHealth Member</label>
                           <select id="inputPhilhealth" name="philhealth" class="form-select">
+                            <option selected>Select</option>  
                             <option>Yes</option>
                             <option>No</option>
                           </select>
@@ -187,6 +201,7 @@
                       <div class="col-md-3">
                           <label for="inputStatusType" class="form-label">Status Type</label>
                           <select id="inputStatusType" name="statustype" class="form-select">
+                            <option selected>Select</option>  
                             <option>N/A</option>
                             <option>Member</option>
                             <option>Dependent</option>
@@ -199,6 +214,7 @@
                       <div class="col-md-3">
                           <label for="inputCategory" class="form-label">If member, indicate category</label>
                           <select id="inputCategory" name="category" class="form-select">
+                            <option selected>Select</option>  
                             <option>N/A</option>
                             <option>FE - Private</option>
                             <option>FE - Goverment</option>
@@ -209,6 +225,7 @@
                       <div class="col-md-3">
                           <label for="inputPCB" class="form-label">Primary Care Benefit (PCB) Member?</label>
                           <select id="inputPCB" name="pcb" class="form-select">
+                            <option selected>Select</option>  
                             <option>Yes</option>
                             <option>No</option>
                           </select>
@@ -225,6 +242,7 @@
                         <div class="col-md-2">
                             <label for="inputTransaction" class="form-label">Mode of Transaction</label>
                             <select id="inputTransaction" name="transactionmode" class="form-select">
+                              <option selected>Select</option>  
                               <option>Walk-in</option>
                               <option>Visited</option>
                               <option>Referral</option>
@@ -253,11 +271,11 @@
                         </div>
                         <div class="col-3">
                             <label for="inputDateConsul" class="form-label">Date of Consultation</label>
-                            <input type="text" name="consultationdate" class="form-control" id="inputDateConsul" placeholder="mm/dd/yyyy">
+                            <input type="date" name="consultationdate" class="form-control" id="inputDateConsul" placeholder="mm/dd/yyyy">
                         </div>
                         <div class="col-3">
                             <label for="inputConsulTime" class="form-label">Consultation Time</label>
-                            <input type="text" name="consultationtime" class="form-control" id="inputConsulTime" placeholder="AM/PM">
+                            <input type="time" name="consultationtime" class="form-control" id="inputConsulTime" placeholder="AM/PM">
                         </div>
                         <div class="col-3">
                             <label for="inputAttendingprovider" class="form-label">Name of Attending Provider</label>
@@ -266,6 +284,7 @@
                         <div class="col-3">
                             <label for="inputNatureVisit" class="form-label">Nature of Visit</label>
                             <select id="inputNatureVisit" name="naturevisit" class="form-select">
+                              <option selected>Select</option>  
                               <option>New Consultation/Case</option>
                               <option>New Admission</option>
                               <option>Follow-up visit</option>

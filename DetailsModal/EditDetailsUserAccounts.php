@@ -47,6 +47,7 @@ $row = $user_accounts->fetch_assoc();
                     <form class="row g-3 mt-4" action="updateUserAccounts.php" method="post">
                         <div class="col-md-4">
                           <label for="inputLastname" class="form-label">Last Name</label>
+                          <input type="hidden" class="form-control" name="id" value="<?php echo $row['id']; ?>">
                           <input type="text" class="form-control" name="lastname" value="<?php echo $row['last_name']; ?>" id="inputLastname">
                         </div>
                         <div class="col-md-4">

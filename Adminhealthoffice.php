@@ -57,9 +57,9 @@ if(!isset($_SESSION)){
   //////////////////////////////////////////////////////////////////////////////// -->
   <div class="wle justify-content-center text-center">
   <?php
-if(!isset($_POST['UserLogin'])){
+if(!isset($_POST['username'])){
 
-  echo "Welcome"." ".$_SESSION['UserLogin'];
+  echo "Welcome"." ".$_SESSION['username'];
 }else{
   echo "Welcome Guest";
 }

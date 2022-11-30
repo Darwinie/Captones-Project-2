@@ -31,7 +31,7 @@
         <div class="modal-body">
             <div class="card">
                 <div class="card-body">
-                <form class="row g-3 mt-4" action="insertpatientinformation.php" method="post">
+                <form class="row g-3 mt-4" action="insertPrenatal.php" method="post">
                   <div class="row">
                       <div class="col-md-3">
                           <label for="inputFamilySerial" class="form-label fw-bold">Family Serial Number</label>
@@ -40,6 +40,14 @@
                       <div class="col-md-2">
                           <label for="inputFamilyCode" class="form-label fw-bold">Family Code</label>
                           <input type="text" class="form-control" name="familycode" id="familycode">
+                      </div>
+                      <div class="col-md-4">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="inputFormtype" class="form-label fw-bold">Form Type</label>
+                        <select id="inputFormtype" name="formtype" class="form-select">
+                          <option selected>Prenatal</option>
+                        </select>
                       </div>
                   </div>
                       <h5 class="ITRtitle justify-content-center text-center shadow">PATIENT ENROLLMENT RECORD</h5>
@@ -100,7 +108,7 @@
                       </div>
                       <div class="col-2">
                         <label for="inputBirthdate" class="form-label">Birth Date</label>
-                        <input type="text" class="form-control" name="birthdate" id="inputBirthdate" placeholder="mm/dd/yyyy">
+                        <input type="date" class="form-control" name="birthdate" id="inputBirthdate" placeholder="mm/dd/yyyy">
                       </div>
                       <div class="col-md-4">
                         <label for="inputBirthPlace" class="form-label">Birthplace</label>
@@ -112,7 +120,7 @@
                       </div>
                       <div class="col-2">
                           <label for="inputBirthdateSpouse" class="form-label">Birth Date of Spouse</label>
-                          <input type="text" class="form-control" name="spousebirthdate" id="inputBirthdateSpouse" placeholder="mm/dd/yyyy">
+                          <input type="date" class="form-control" name="spousebirthdate" id="inputBirthdateSpouse" placeholder="mm/dd/yyyy">
                       </div>
                       <div class="col-md-3">
                           <label for="inputEducationAttainment" class="form-label">Educational Attainment</label>
@@ -145,7 +153,7 @@
                       </div>
                       <div class="col-2">
                           <label for="inputMotherBirthdate" class="form-label">Mother's Birth Date</label>
-                          <input type="text" class="form-control" name="motherbirthdate" id="inputMotherBirthdate" placeholder="mm/dd/yyyy">
+                          <input type="date" class="form-control" name="motherbirthdate" id="inputMotherBirthdate" placeholder="mm/dd/yyyy">
                       </div>
                       <div class="col-md-4">
                           <label for="inputFathersName" class="form-label">Father's Name</label>
@@ -153,7 +161,7 @@
                       </div>
                       <div class="col-2">
                           <label for="inputFatherBirthdate" class="form-label">Father's Birth Date</label>
-                          <input type="text" class="form-control" name="fatherbirthdate" id="inputFatherBirthdate" placeholder="mm/dd/yyyy">
+                          <input type="date" class="form-control" name="fatherbirthdate" id="inputFatherBirthdate" placeholder="mm/dd/yyyy">
                       </div>
                       <div class="col-md-3">
                           <label for="inputNHTS" class="form-label">DSWD NHTS</label>
@@ -253,11 +261,11 @@
                         </div>
                         <div class="col-3">
                             <label for="inputDateConsul" class="form-label">Date of Consultation</label>
-                            <input type="text" name="consultationdate" class="form-control" id="inputDateConsul" placeholder="mm/dd/yyyy">
+                            <input type="date" name="consultationdate" class="form-control" id="inputDateConsul" placeholder="mm/dd/yyyy">
                         </div>
                         <div class="col-3">
                             <label for="inputConsulTime" class="form-label">Consultation Time</label>
-                            <input type="text" name="consultationtime" class="form-control" id="inputConsulTime" placeholder="AM/PM">
+                            <input type="time" name="consultationtime" class="form-control" id="inputConsulTime" placeholder="AM/PM">
                         </div>
                         <div class="col-3">
                             <label for="inputAttendingprovider" class="form-label">Name of Attending Provider</label>
@@ -317,7 +325,7 @@
                         </div>
                         <div class="col-3">
                           <label for="inputEDC" class="form-label">Estimated Due Date</label>
-                          <input type="text" name="estimatedduedate" class="form-control" id="inputEDC">
+                          <input type="date" name="estimatedduedate" class="form-control" id="inputEDC">
                         </div>
                         <div class="col-3">
                           <label for="inputAOG" class="form-label">Gestational Age</label>
@@ -351,7 +359,7 @@
                         </div>
                         <div class="col-3">
                           <label for="inputSchedNextVisit" class="form-label">Schedule of Next Visit</label>
-                          <input type="text" name="schednextvisit" class="form-control" id="inputSchedNextVisit" placeholder="dd/mm/yyyy">
+                          <input type="date" name="schednextvisit" class="form-control" id="inputSchedNextVisit" placeholder="dd/mm/yyyy">
                         </div>
                         <div class="col-3">
                           <label for="inputFundicHeight" class="form-label">Fundic Height (cm)</label>

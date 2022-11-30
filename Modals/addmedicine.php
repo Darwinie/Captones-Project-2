@@ -38,7 +38,7 @@ $con = connection();
                 <div class="card-body">
                 <div class="container">
                 <h3>Add new<b> Item</b></h3>
-                <form class="row g-3 mt-4 mb-3" action="insertpatientinformation.php" method="post">
+                <form class="row g-3 mt-4 mb-3" action="insertmedicine.php" method="post">
                 
                     <div class="col-md-2">
                           <label for="inputItemno" class="form-label">Item No.</label>
@@ -46,12 +46,12 @@ $con = connection();
                         </div>
                         <div class="col-md-2">
                           <label for="inputQuantity" class="form-label">Quantity</label>
-                          <input type="number" class="form-control" name="quantity" id="inputQuantity">
+                          <input type="number" class="form-control" name="tquantity" id="quantity">
                         </div>
                         <div class="col-md-2">
-                            <label for="inputUnitissue" class="form-label">Unit of Issue</label>
-                            <input type="text" class="form-control" name="unitissue" id="inputUnitissue">
-                          </div>
+                          <label for="inputQuantity" class="form-label">Available Quantity</label>
+                          <input type="number" class="form-control" name="aquantity" id="availablequantity" readonly>
+                        </div>
                         <div class="col-md-3">
                           <label for="inputItemdesc" class="form-label">Item Decription</label>
                           <input type="text" class="form-control" name="itemdesc" id="inputItemdesc">
@@ -78,7 +78,16 @@ $con = connection();
    
   <script src="assets/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+
+  <script>
+  var $input2 = document.getElementById('availablequantity');
+  var $input1 = document.getElementById('quantity');
+  $input1.addEventListener('keyup', function()
+  {
+    $input2.value = $input1.value;
+  });
+  </script>
 </body>
 </html>
 

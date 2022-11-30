@@ -23,15 +23,20 @@ $con = connection();
     <!-- Boxiocns CDN Link -->
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
     <script src="//code.jquery.com/jquery-1.10.2js"></script>
+    <!-- FOR PAGINATION DESIGN -->
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet"  href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css"/>
 </head>
 <body>
 
 
 <?php
 
-$sql = "SELECT * FROM patient_information ORDER BY id DESC";
+$sql = "SELECT * FROM patient_information WHERE record_type = 'General' ORDER BY id DESC";
 $patient_information = $con->query($sql) or die ($con->error);
 $row = $patient_information->fetch_assoc();
+
+
 
 ?>
 
@@ -45,18 +50,17 @@ $row = $patient_information->fetch_assoc();
           <div class="row">
               <div class="col-sm-6">
                  <h2>List of <b> Patients</b></h2>
-                 <?php include('Modals/Modal.php'); ?>   
-                  
+                 <?php include('Modals/Modal.php'); ?>    
               </div>
 
-              <div class="col-sm-6">
+              <!-- <div class="col-sm-6">
                 <form action="result.php" method="get" class="d-flex" role="search">
                   <input class="form-control me-2" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
                   <button class="btn btn-outline-success" type="submit" >Search</button>
                 </form>
-             </div>
+             </div> -->
         <div class="tables border shadow border-3 mt-3 mb-5">
-        <table class="table">
+        <table class="table table-striped mt-3" id="patientTable" style="width:100%">
             <thead>
           <tr>
             <th>#</th>
@@ -82,9 +86,7 @@ $row = $patient_information->fetch_assoc();
                         <td>
                             <div class="col-2">
                             <a href="view_medicalrecord.php?id=<?php echo $row['id']; ?>" class="btn btn-primary mb-2">view</a>
-                            </div>
-                            
-                             
+                            </div>   
                         </td> 
                   </tr>
                   <?php }while($row = $patient_information->fetch_assoc()); ?>
@@ -103,8 +105,18 @@ $row = $patient_information->fetch_assoc();
     <script src= "https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+ 
 
-   
-  </script>
+    <!-- FOR PAGINATION -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>   
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>   
+    
+    <!-- FOR PAGINATION TABLE -->
+    <script>
+      $(document).ready(function () {
+      $('#patientTable').DataTable();
+      });
+    </script>
   </body>
 </html>

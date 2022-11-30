@@ -7,6 +7,7 @@ if(isset($_POST['submit'])){
   
   $fserial = $_POST['familyserial'];   
   $fcode = $_POST['familycode'];
+  $ftype = $_POST['formtype'];
   $lname = $_POST['lastname'];
   $fname = $_POST['firstname'];
   $mname = $_POST['middlename'];
@@ -61,11 +62,11 @@ if(isset($_POST['submit'])){
   $perflaboratory = $_POST['performedlaboratory'];  
 
  
-  $sql = "INSERT INTO `patient_information`(`family_number`, `family_code`, `last_name`, `first_name`, `middle_name`, 
+  $sql = "INSERT INTO `patient_information`(`family_number`, `family_code`, `record_type`, `last_name`, `first_name`, `middle_name`, 
   `suffix`, `sex`, `address`, `zip`, `contact_no`, `civil_status`, `spouse_name`, `birth_date`, `birth_place`, `blood_type`,
    `bd_spouse`, `educational_attainment`, `family_member`, `other_specify`, `mother_name`, `mother_bd`, `father_name`, 
    `father_bd`, `dswd_nhts`, `family_house_no`, `4ps_member`, `household_no`, `philhealth_member`, `status_type`, 
-   `philhealth_no`, `indicate_category`, `pcb_member`) VALUES ('$fserial','$fcode','$lname','$fname',
+   `philhealth_no`, `indicate_category`, `pcb_member`) VALUES ('$fserial','$fcode','$ftype','$lname','$fname',
    '$mname','$suffix','$sex','$addrs','$zip','$contact','$cstatus','$sname','$bdate',
    '$bplace','$btype','$sbirthdate','$eattainment','$fmember','$specify','$mothname','$mbirthdate','$fathname',
    '$fbirthdate','$dnhts','$fhousehold','$fourps','$hholdno','$philmem','$philstatype','$phealthno','$category'
@@ -91,21 +92,3 @@ if(isset($_POST['submit'])){
 }
 ?>
 
-
-
-
-
-<!-- $sql = "INSERT INTO `patient_information`(`family_number`, `family_code`, `last_name`, `first_name`, `middle_name`, 
-  `suffix`, `sex`, `address`, `zip`, `contact_no`, `civil_status`, `spouse_name`, `birth_date`, `birth_place`, `blood_type`,
-   `bd_spouse`, `educational_attainment`, `family_member`, `other_specify`, `mother_name`, `mother_bd`, `father_name`, 
-   `father_bd`, `dswd_nhts`, `family_house_no`, `4ps_member`, `household_no`, `philhealth_member`, `status_type`, 
-   `philhealth_no`, `indicate_category`, `pcb_member`, `mode_transaction`, `referred_from`, `referred_to`, `referral_reason`,
-  `referred_by`, `consultation_date`, `consultation_time`, `attending_provider`, `nature_visit`, `bloodpressure`, `temperature`,
-   `respiratory_rate`, `pulse_rate`, `height`, `weight`, `chief_complaints`, `diagnosis`, `medication_treatment`, 
-   `healthcare_provider`, `laboratory_findings`, `performedlaboratory_tes` ) VALUES ('$fserial','$fcode','$lname','$fname',
-   '$mname','$suffix','$sex','$addrs','$zip','$contact','$cstatus','$sname','$bdate',
-   '$bplace','$btype','$sbirthdate','$eattainment','$fmember','$specify','$mothname','$mbirthdate','$fathname',
-   '$fbirthdate','$dnhts','$fhousehold','$fourps','$hholdno','$philmem','$philstatype','$phealthno','$category'
-   ,'$pcb','$transacmode','$reffrom','$refto','$refreason','$refby','$consuldate','$consultime','$attprovider','$natvisit',
-   '$bpressure','$temp','$respirate','$prate','$height','$weight','$ccomplaints','$diag','$medtreatment',
-   '$hcareprovider','$labfindings ','$perflaboratory')"; -->

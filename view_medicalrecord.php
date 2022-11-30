@@ -15,6 +15,11 @@ $sql = "SELECT * FROM patient_information WHERE id = '$id'";
 $patient_information = $con->query($sql) or die ($con->error);
 $row = $patient_information->fetch_assoc();
 
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +41,10 @@ $row = $patient_information->fetch_assoc();
 </head>
 <body>
 
+<?php
 
+
+?>
 
   <!-- ///////////////////////////////////////////////////////////////////////////////
                             CONTENT SECTION
@@ -61,7 +69,7 @@ $row = $patient_information->fetch_assoc();
         <div class="col-md-10 text-end mb-2">
                             <form action="deletepatientinformation.php" method="post">
                                 <!-- This delete code is for admin only to see -->
-                                <?php if($_SESSION['Access'] == "administrator"){?>
+                                <?php if($_SESSION['access'] == "Admin"){?>
                                 <button type="submit" name="delete" class="btn btn-danger">Delete</button>
                                 <input type="hidden" name="ID" value="<?php echo $row['id']; ?>">
                                 <?php } ?>
@@ -87,14 +95,19 @@ $row = $patient_information->fetch_assoc();
                         <div class="col-md-2">
                             
                         </div>
-                        <div class="col-sm">
-                            
+                        <div class="col-sm">  
                         </div>
                         <div class="col-md-2 text-end">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#MedicalRecordDetails">
                              Edit
                             </button>
                         </div>
+                        <div class="col-md-2 text-end">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#MedicalRecordDetails">
+                            Family Profile
+                            </button>
+                        </div>
+
                     </div>
                         <h5 class="ITRtitle justify-content-center text-center shadow">PATIENT ENROLLMENT RECORD</h5>
                         <div class="col-md-3">
@@ -139,7 +152,7 @@ $row = $patient_information->fetch_assoc();
                         </div> 
                         <div class="col-md-2">
                             <label for="inputCivilStatus" class="form-label">Civil Status</label>
-                            <select id="inputCivilStatus" name="civilstatus" value="<?php echo $row['civil_status']; ?>" class="form-select">
+                            <select id="inputCivilStatus" name="civilstatus" class="form-select">
                               <option <?php echo ($row['civil_status'] == "Single")? 'selected' : '' ?>>Single</option>
                               <option <?php echo ($row['civil_status'] == "Married")? 'selected' : '' ?>>Married</option>
                               <option <?php echo ($row['civil_status'] == "Annulled")? 'selected' : '' ?>>Annulled</option>
@@ -267,115 +280,72 @@ $row = $patient_information->fetch_assoc();
                               <option <?php echo ($row['pcb_member'] == "No")? 'selected' : '' ?>>No</option>
                             </select>
                         </div>
-                        <h5 class="ITRtitle justify-content-center text-center shadow">INDIVIDUAL TREATMENT RECORD</h5>
-                        <div class="col-md-3">
-                            <label for="inputFamilySerial" class="form-label fw-bold">Family Serial Number</label>
-                            <input type="hidden" class="form-control" name="id" value="<?php echo $row['id']; ?>" id="">
-                            <input type="text" class="form-control" name="familyserial" value="<?php echo $row['family_number']; ?>" id="inputFamilySerial">    
-                        </div>
-                        <!-- <div class="col-5">
-                            <label for="inputAddress" class="form-label">Residential Address</label>
-                            <input type="text" class="form-control" value="<?php echo $row['address']; ?>" name="address" id="inputAddress" placeholder="1234 Main St">
-                        </div> -->
-                        <div class="col-md-2">
-                            <label for="inputTransaction" class="form-label">Mode of Transaction</label>
-                            <select id="inputTransaction" name="transactionmode" class="form-select">
-                              <option <?php echo ($row['mode_transaction'] == "Walk-in")? 'selected' : '' ?>>Walk-in</option>
-                              <option <?php echo ($row['mode_transaction'] == "Visited")? 'selected' : '' ?>>Visited</option>
-                              <option <?php echo ($row['mode_transaction'] == "Referral")? 'selected' : '' ?>>Referral</option>
-                            </select>
-                        </div>
-                        <div class="col-3 text-end">
-                            <label for="inputReferredFrom" class="form-label">For REFERRAL</label>
-                            <br>
-                            <label for="inputReferredFrom" class="form-label">transaction only:</label>
-                        </div>
-                        <div class="col-3">
-                            <label for="inputReferredFrom" class="form-label">REFERRED FROM</label>
-                            <input type="text" class="form-control" name="referredfrom" value="<?php echo $row['referred_from']; ?>" id="inputReferredFrom">
-                        </div>
-                        <div class="col-3">
-                            <label for="inputReferredTo" class="form-label">REFERRED TO</label>
-                            <input type="text" class="form-control" name="referredto" value="<?php echo $row['referred_to']; ?>" id="inputReferredTo">
-                        </div>
-                        <div class="col-3" style="margin-left:28rem;">
-                            <label for="ReasonRefer" class="form-label">Reason(s) for Referral</label>
-                            <textarea class="form-control" name="referralreason" id="ReasonRefer" rows="1"><?php echo $row['referral_reason']; ?></textarea>
-                        </div>
-                        <div class="col-3">
-                            <label for="inputReferredBy" class="form-label">Referred by</label>
-                            <input type="text" class="form-control" name="referredby" value="<?php echo $row['referred_by']; ?>" id="inputReferredBy">
-                        </div>
-                        <div class="col-3">
-                            <label for="inputDateConsul" class="form-label">Date of Consultation</label>
-                            <input type="text" class="form-control" name="consultationdate" value="<?php echo $row['consultation_date']; ?>" id="inputDateConsul" placeholder="mm/dd/yyyy">
-                        </div>
-                        <div class="col-3">
-                            <label for="inputConsulTime" class="form-label">Consultation Time</label>
-                            <input type="text" class="form-control" name="consultationtime" value="<?php echo $row['consultation_time']; ?>" id="inputConsulTime" placeholder="AM/PM">
-                        </div>
-                        <div class="col-3">
-                            <label for="inputAttendingprovider" class="form-label">Name of Attending Provider</label>
-                            <input type="text" class="form-control" name="attendingprovider" value="<?php echo $row['attending_provider']; ?>" id="inputAttendingprovider">
-                        </div>
-                        <div class="col-3">
-                            <label for="inputNatureVisit" class="form-label">Nature of Visit</label>
-                            <select id="inputNatureVisit" name="naturevisit" class="form-select">
-                              <option <?php echo ($row['nature_visit'] == "New Consultation/Case")? 'selected' : '' ?>>New Consultation/Case</option>
-                              <option <?php echo ($row['nature_visit'] == "New Admission")? 'selected' : '' ?>>New Admission</option>
-                              <option <?php echo ($row['nature_visit'] == "New Follow-up visit")? 'selected' : '' ?>>Follow-up visit</option>
-                            </select>
-                        </div>
-                        <div class="col-3">
-                            <label for="inputBloodPressure" class="form-label">Blood Pressure</label>
-                            <input type="text" class="form-control" name="bloodpressure" value="<?php echo $row['bloodpressure']; ?>" id="inputBloodPressure">
-                        </div>
-                        <div class="col-3">
-                            <label for="inputTemperature" class="form-label">Temperature</label>
-                            <input type="text" class="form-control" name="temperature" value="<?php echo $row['temperature']; ?>" id="inputTemperature">
-                        </div>
-                        <div class="col-3">
-                            <label for="inputRespiratoryR" class="form-label">Respiratory Rate</label>
-                            <input type="text" name="respiratoryrate" class="form-control" value="<?php echo $row['respiratory_rate']; ?>" id="inputRespiratoryR">
-                        </div>
-                        <div class="col-3">
-                            <label for="inputPulseR" class="form-label">Pulse Rate</label>
-                            <input type="text" name="pulserate" class="form-control" value="<?php echo $row['pulse_rate']; ?>" id="inputPulseR">
-                        </div>
-                        <div class="col-3">
-                            <label for="inputHeight" class="form-label">Height (cm)</label>
-                            <input type="text" name="height" class="form-control" value="<?php echo $row['height']; ?>" id="inputHeight">
-                        </div>
-                        <div class="col-3">
-                            <label for="inputWeight" class="form-label">Weight (kg)</label>
-                            <input type="text" name="weight" class="form-control" value="<?php echo $row['weight']; ?>" id="inputWeight">
-                        </div>
-                        <div></div>
-                        <div class="col-4">
-                            <label for="ChiefComplaints" class="form-label">Chief Complaints</label>
-                            <textarea class="form-control" name="chiefcomplaints" id="ChiefComplaints" rows="1"><?php echo $row['chief_complaints']; ?></textarea>
-                        </div>
-                        <div class="col-4">
-                            <label for="Diagnosis" class="form-label">Diagnosis</label>
-                            <textarea class="form-control"  name="diagnosis" id="Diagnosis" rows="1"><?php echo $row['diagnosis']; ?></textarea>
-                        </div>
-                        <div class="col-4">
-                            <label for="MedicationTreatment" class="form-label">Medication/Treatment</label>
-                            <textarea class="form-control" name="medicationtreatment" id="MedicationTreatment" rows="1"><?php echo $row['medication_treatment']; ?></textarea>
-                        </div>
-                        <div class="col-4">
-                            <label for="inputHealthProvider" class="form-label">Name of Health Care Provider</label>
-                            <input type="text" name="healthcareprovider" class="form-control" value="<?php echo $row['healthcare_provider']; ?>" id="inputHealthProvider">
-                        </div>
-                        <div class="col-4">
-                            <label for="LabFindings" class="form-label">Laboratory Findings/Impression</label>
-                            <textarea class="form-control" name="laboratoryfindings" id="LabFindings" rows="1"><?php echo $row['laboratory_findings']; ?></textarea>
-                        </div>
-                        <div class="col-4">
-                            <label for="PerformedLabTest" class="form-label">Performed Laboratory Test</label>
-                            <textarea class="form-control" name="performedlaboratory" id="PerformedLabTest" rows="1"><?php echo $row['performedlaboratory_tes']; ?></textarea>
-                        </div>
+                      
                     </form>
+                
+                    <?php 
+                        
+                        $familynumber = $row['family_number'];
+                        
+                        $sql = "SELECT * FROM medical_itr WHERE family_number LIKE $familynumber ORDER BY id DESC";
+                        $medical_itr = $con->query($sql) or die ($con->error);
+                        $row = $medical_itr->fetch_assoc();
+
+                                    
+                     ?>
+                     <?php  ?> 
+                    
+                    <div class="table-wrapper">
+                    <div class="table-title">
+                      <div class="row">
+                          <div class="col-sm-6">
+                             <h3>Individual Treatment <b> Record</b></h3>
+                             <h3>Medical <b> History</b></h3>
+                          </div>
+                          <div class="col-sm-6">
+                            <form action="result.php" method="get" class="d-flex" role="search">
+                              <input class="form-control me-2" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
+                              <button class="btn btn-outline-success" type="submit" >Search</button>
+                            </form>
+                          </div>
+                          <div class="tables border shadow border-3 mt-3 mb-5">
+                    <table class="table">
+                        <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Family Number</th>
+                        <th>Age</th>
+                        <th>Chief of Complaints</th>
+                        <th>Diagnosis</th>
+                        <th>Medication Treatment</th>
+                        <th>Time Added</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                        <tbody>
+                        <?php do{ ?>
+                            <tr>
+                                    <td class="patient_id"><?php echo $row['id']; ?></td>
+                                    <td><?php echo $row['family_number']; ?></td>
+                                    <td><?php echo $row['Age'];?></td>
+                                    <td><?php echo $row['chief_complaints']; ?></td>
+                                    <td><?php echo $row['diagnosis']; ?></td>
+                                    <td><?php echo $row['medication_treatment']; ?></td>
+                                    <td><?php echo $row['added_at']; ?></td>
+                                    <td>
+                                        <div class="col-2">
+                                    
+                                        <a href="view_medical_itr.php?id=<?php echo $row['id']; ?>" class="btn btn-primary mb-2">view</a>
+                                        
+                                    </td> 
+                              </tr>
+                        <?php }while($row = $medical_itr->fetch_assoc()); ?>
+                        </tbody>
+                    </table>
+                  </div>
+                  </div>
+                 </div>
+                </div>  
                 </div>
             </div>
             
@@ -399,6 +369,51 @@ $row = $patient_information->fetch_assoc();
     <script src= "https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
+
+    <!-- <script>
+      $(document).ready(function(){
+          $('button').click(function(){
+        id_emp = $(this).attr('id')
+              $.ajax({url: "view_medical_itr.php",
+              method:'post',
+              data:{patient_id:id_emp},
+               success: function(result){
+          $(".patient_id").html(result);
+        }});
+      
+      
+              $('#medical_itr').modal("show");
+          })
+      })
+    </script> -->
+
+    <!-- <script>
+      $(document).ready(function () {
+        $('.view_btn').click(function (e) {
+          e.preventDefault();
+
+          var p_id = $(this).closest('tr').find('.patient_id').text();
+          
+          // console.log(p_id);
+
+          $.ajax({
+            method: "POST",
+            url: "Modals/viewHistory/view_medical_itr.php",
+            data: {
+                  'checking_viewbtn': true,
+                  'patient_id': p_id,
+            },
+            success: function (response){
+              // console.log(response);
+              $('.patient_viewing').html(response);
+              $('#medical_itr').modal('show');
+
+            }
+          });
+        });
+      });
+    </script> -->
 </body>
 </html>

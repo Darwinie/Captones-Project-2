@@ -47,13 +47,14 @@ $con = connection();
                     <div class="iocn-link">
                       <a href="#">
                         <i class='bx bx-collection' ></i>
-                        <span class="link_name">Patient Information Module</span>
+                        <span class="link_name">Patient Information</span>
                       </a>
                       <i class='bx bxs-chevron-down arrow' ></i>
                     </div>
                     <ul class="Menu">
                       <li><a class="link_name" href="#">Patient Information</a></li>
                       <li onclick="patienttoggle()"><a href="#Patient-Table">Medical</a></li>
+                      <li><a href="familyprofiletable.php">Family Profiling</a></li>
                       <li onclick="dentaltoggle()"><a href="#Dental-Table">Dental</a></li>
                       <li onclick="immunizationtoggle()"><a href="#Immunization-Table">Immunization</a></li>
                       <li class="hover-me"><a href="#">Pediatric
@@ -62,7 +63,9 @@ $con = connection();
                         <ul class="sub-menu2">
                             <li><a class="link_name" href="#">Pediatric</a></li>
                             <li onclick="Pimmunitoggle()"><a href="#Pimmunization-Table">Vaccination</a></li>
+                            <li><a href="barangay_vaccination_table.php">Barangay Vaccination</a></li>
                             <li onclick="Pdewormingtoggle()"><a href="#Deworming-Table">Deworming</a></li>
+                            <li><a href="brgydeworming_table.php">Barangay Deworming</a></li>
                           </ul>
                         </li>
                       
@@ -73,12 +76,28 @@ $con = connection();
                         <ul class="sub-menu2">
                             <li><a class="link_name" href="#">OB</a></li>
                             <li onclick="prenataltoggle()"><a href="#PreNatal-Table">Pre-Natal</a></li>
+                            <li><a href="#PreNatal-Table">Barangay Pre-Natal</a></li>
                             <li onclick="postnataltoggle()"><a href="#PostNatal-Table">Post-Natal</a></li>
                             <li onclick="familyplantoggle()"><a href="#FamilyPlanning-Table">Family Planning</a></li>
-                          </ul>
+                            <li><a href="brgy_familyplanning_table.php">Barangay Family Planning</a></li>
+                        </ul>
                       </li>
                     </ul>
                   </li>
+                  <!-- <li>
+                <div class="iocn-link">
+                  <a href="#">
+                    <i class='bx bx-collection' ></i>
+                    <span class="link_name">Barangay Record</span>
+                  </a>
+                  <i class='bx bxs-chevron-down arrow' ></i>
+                </div>
+                <ul class="Menu">
+                  <li><a class="link_name" href="#">Barangay Record</a></li>
+                  <li><a href="#">Family Profiling</a></li>
+                  <li><a href='CMB.php'>Barangay Reports</a></li>
+                </ul>
+              </li> -->
               <li>
                 <div class="iocn-link">
                   <a href="#">
@@ -90,8 +109,10 @@ $con = connection();
                 <ul class="Menu">
                   <li><a class="link_name" href="#">Inventory</a></li>
                   <li><a href="medicine_Inventory.php">Medicine</a></li>
+                  <li><a href="medicine_Inventory.php">Barangay Medicine</a></li>
                   <li><a href="consumables_Inventory.php">Consumables</a></li>
                   <li><a href="issuance_Inventory.php">Issuance</a></li>
+                  <li><a href="issuance_Inventory.php">Barangay Issuance</a></li>
                 </ul>
               </li>
               <li>

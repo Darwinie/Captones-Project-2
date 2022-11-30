@@ -22,16 +22,25 @@ $con = connection();
     <!-- Boxiocns CDN Link -->
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
     <script src="//code.jquery.com/jquery-1.10.2js"></script>
+    <!-- FOR PAGINATION DESIGN -->
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet"  href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css"/>
 </head>
 <body>
 
 
 <?php
 
-$sql = "SELECT * FROM patient_information ORDER BY id DESC";
-$patient_information = $con->query($sql) or die ($con->error);
-$row = $patient_information->fetch_assoc();
+$sql = "SELECT * FROM tbl_medicine_inventory ORDER BY id DESC";
+$medicine_inventory = $con->query($sql) or die ($con->error);
+$row = $medicine_inventory->fetch_assoc();
+
 include('Modals/addmedicine.php');
+include('Modals/updatemedicine.php');
+
+
+
+
 ?>
 
 <!-- ///////////////////////////////////////////////////////////////////////////////
@@ -60,57 +69,51 @@ include('Modals/addmedicine.php');
           <div class="row">
               <div class="col-sm-6">
                  <h2>Medicine<b> Inventory</b></h2>
-                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#medicineInventory">
+                 <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#medicineInventory">
                    Add New
-                 </button>       
+                 </button>        -->
+                 <button data-id="<? echo $row['id'] ?>"  onclick="$('#dataid').val($(this).data('id')); $('#medicineInventory')
+                            .modal('show');" class="btn btn-primary" >Add New
+                  </button>
               </div>
 
-              <div class="col-sm-6">
+              <!-- <div class="col-sm-6">
                 <form action="result.php" method="get" class="d-flex" role="search">
                   <input class="form-control me-2" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
                   <button class="btn btn-outline-success" type="submit" >Search</button>
                 </form>
-             </div>
-        <div class="tables border shadow border-3 mt-3 mb-5">
-        <table class="table">
+             </div> -->
+          <div class="tables border shadow border-3 mt-3 mb-5">
+          <table class="table table-striped mt-3" id="medicineInventoryTable" style="width:100%">
             <thead>
           <tr>
             <th>#</th>
             <th>Item No.</th>
-            <th>Quantity</th>
-            <th>Unit of Issue</th>
+            <th>Total Quantity</th>
+            <th>Available Quantity</th>
             <th>Item Description</th>
             <th>Expiration Date</th>
+            <th>Date Added</th>
             <th>Action</th>
           </tr>
         </thead>
             <tbody>
-            
+                <?php do{ ?>
                 <tr>
-                        <td>1</td>
-                        <td>ITM-0001</td>
-                        <td>150</td>
-                        <td>box</td>
-                        <td>Amoxcicillin Ascorbic Acid(25g)</td>
-                        <td>11/13/2022</td>
+                        <td><?php echo $row['id']; ?></td>
+                        <td><?php echo $row['Item_no']; ?></td>
+                        <td><?php echo $row['total_quantity']; ?></td>
+                        <td><?php echo $row['quantity']; ?></td>
+                        <td><?php echo $row['item_description_']; ?></td>
+                        <td><?php echo $row['expiration_date']; ?></td>
+                        <td><?php echo $row['added_at']; ?></td>
                         <td>
-                            <div class="col-2">
-                            <a href="view_medicalrecord.php?id=<?php echo $row['id']; ?>" class="btn btn-primary mb-2">view</a>
-                            </div>   
+                            <!-- <button data-id="<? echo $note['id'] ?>"  onclick="$('#dataid').val($(this).data('id')); $('#updatemedicineinventory')
+                            .modal('show');" class="btn btn-primary" >click me
+                            </button> -->
+                            <button type="button" class="btn btn-primary editbtn">Edit</button>
                         </td> 
-                  </tr>
-                  <tr>
-                        <td>2</td>
-                        <td>ITM-0002</td>
-                        <td>150</td>
-                        <td>Tablet</td>
-                        <td>Mefenamic Pain Killer(25g)</td>
-                        <td>11/13/2022</td>
-                        <td>
-                            <div class="col-2">
-                            <a href="view_medicalrecord.php?id=<?php echo $row['id']; ?>" class="btn btn-primary mb-2">view</a>
-                            </div>   
-                        </td> 
+                  <?php }while($row = $medicine_inventory->fetch_assoc()); ?>    
                   </tr>
                   
             </tbody>
@@ -142,6 +145,47 @@ include('Modals/addmedicine.php');
 
    
   </script>
+   <!--FOR SIDE BAR-->
+   <script src="js/JS_tables.js"></script>
+    <script src="js/JS_Reports.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <!-- FOR PAGINATION -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>   
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>   
+    
+    <!-- FOR PAGINATION TABLE -->
+    <script>
+      $(document).ready(function () {
+      $('#medicineInventoryTable').DataTable();
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+         $('.editbtn').on('click', function () {
+             $('#updatemedicineinventory').modal('show');
+
+             $tr = $(this).closest('tr');
+
+             var data = $tr.children("td").map(function() {
+                return $(this).text();
+             }).get();
+
+             console.log(data);
+
+             $('#id').val(data[0]);
+             $('#itemno').val(data[1]);
+             $('#inputQuantity').val(data[2]);
+             $('#inputAQuantity').val(data[3]);
+             $('#itemdesc').val(data[4]);
+             $('#xpdate').val(data[5]);
+
+         });
+
+      });
+    </script>
   </body>
 </html>
 

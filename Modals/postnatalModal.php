@@ -16,7 +16,7 @@
   
 
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postNatal">
-  POSTNATAL
+  Add New
 </button>
 
 
@@ -31,7 +31,7 @@
         <div class="modal-body">
             <div class="card">
                 <div class="card-body">
-                <form class="row g-3 mt-4" action="insertpatientinformation.php" method="post">
+                <form class="row g-3 mt-4" action="insertPostnatal.php" method="post">
                   <div class="row">
                       <div class="col-md-3">
                           <label for="inputFamilySerial" class="form-label fw-bold">Family Serial Number</label>
@@ -40,6 +40,14 @@
                       <div class="col-md-2">
                           <label for="inputFamilyCode" class="form-label fw-bold">Family Code</label>
                           <input type="text" class="form-control" name="familycode" id="familycode">
+                      </div>
+                      <div class="col-md-4">
+                      </div>
+                      <div class="col-md-3">
+                          <label for="inputFormtype" class="form-label fw-bold">Form Type</label>
+                          <select id="inputFormtype" name="formtype" class="form-select">
+                            <option selected>Postnatal</option>
+                          </select>
                       </div>
                   </div>
                       <h5 class="ITRtitle justify-content-center text-center shadow">PATIENT ENROLLMENT RECORD</h5>
@@ -100,7 +108,7 @@
                       </div>
                       <div class="col-2">
                         <label for="inputBirthdate" class="form-label">Birth Date</label>
-                        <input type="text" class="form-control" name="birthdate" id="inputBirthdate" placeholder="mm/dd/yyyy">
+                        <input type="date" class="form-control" name="birthdate" id="inputBirthdate" placeholder="mm/dd/yyyy">
                       </div>
                       <div class="col-md-4">
                         <label for="inputBirthPlace" class="form-label">Birthplace</label>
@@ -112,7 +120,7 @@
                       </div>
                       <div class="col-2">
                           <label for="inputBirthdateSpouse" class="form-label">Birth Date of Spouse</label>
-                          <input type="text" class="form-control" name="spousebirthdate" id="inputBirthdateSpouse" placeholder="mm/dd/yyyy">
+                          <input type="date" class="form-control" name="spousebirthdate" id="inputBirthdateSpouse" placeholder="mm/dd/yyyy">
                       </div>
                       <div class="col-md-3">
                           <label for="inputEducationAttainment" class="form-label">Educational Attainment</label>
@@ -145,7 +153,7 @@
                       </div>
                       <div class="col-2">
                           <label for="inputMotherBirthdate" class="form-label">Mother's Birth Date</label>
-                          <input type="text" class="form-control" name="motherbirthdate" id="inputMotherBirthdate" placeholder="mm/dd/yyyy">
+                          <input type="date" class="form-control" name="motherbirthdate" id="inputMotherBirthdate" placeholder="mm/dd/yyyy">
                       </div>
                       <div class="col-md-4">
                           <label for="inputFathersName" class="form-label">Father's Name</label>
@@ -153,7 +161,7 @@
                       </div>
                       <div class="col-2">
                           <label for="inputFatherBirthdate" class="form-label">Father's Birth Date</label>
-                          <input type="text" class="form-control" name="fatherbirthdate" id="inputFatherBirthdate" placeholder="mm/dd/yyyy">
+                          <input type="date" class="form-control" name="fatherbirthdate" id="inputFatherBirthdate" placeholder="mm/dd/yyyy">
                       </div>
                       <div class="col-md-3">
                           <label for="inputNHTS" class="form-label">DSWD NHTS</label>
@@ -232,11 +240,11 @@
                         </div>
                         <div class="col-3">
                             <label for="inputDateConsul" class="form-label">Date of Consultation</label>
-                            <input type="text" name="consultationdate" class="form-control" id="inputDateConsul" placeholder="mm/dd/yyyy">
+                            <input type="date" name="consultationdate" class="form-control" id="inputDateConsul" placeholder="mm/dd/yyyy">
                         </div>
                         <div class="col-3">
                             <label for="inputConsulTime" class="form-label">Consultation Time</label>
-                            <input type="text" name="consultationtime" class="form-control" id="inputConsulTime" placeholder="AM/PM">
+                            <input type="time" name="consultationtime" class="form-control" id="inputConsulTime" placeholder="AM/PM">
                         </div>
                         <div class="col-3">
                             <label for="inputAttendingprovider" class="form-label">Name of Attending Provider</label>
@@ -316,27 +324,27 @@
                         </div>
                         <div class="col-md-3">
                           <label for="inputDeliveryDate" class="form-label">Delivery Date</label>
-                          <input type="text" id="inputDeliveryDate" name="deliverydate" class="form-select">
+                          <input type="date" id="inputDeliveryDate" name="deliverydate" class="form-select">
                         </div>
                         <div class="col-md-3">
                           <label for="inputDeliverytime" class="form-label">Delivery Time</label>
-                          <input type="text" id="inputDeliverytime" name="deliverytime" class="form-select">
+                          <input type="time" id="inputDeliverytime" name="deliverytime" class="form-select">
                         </div>
                         <div class="col-md-3">
                           <label for="inputdateInitiateBreastfeeding" class="form-label">Date Initiated Breastfeeding</label>
-                          <input type="text" id="inputdateInitiateBreastfeeding" name="dateInitiateBreastfeeding" class="form-select">
+                          <input type="date" id="inputdateInitiateBreastfeeding" name="dateInitiateBreastfeeding" class="form-select">
                         </div>
                         <div class="col-md-3">
                           <label for="inputtimeInitiateBreastfeeding" class="form-label">Time Initiated Breastfeeding</label>
-                          <input type="text" id="inputtimeInitiateBreastfeeding" name="timeInitiateBreastfeeding" class="form-select">
+                          <input type="time" id="inputtimeInitiateBreastfeeding" name="timeInitiateBreastfeeding" class="form-select">
                         </div>
                         <div class="col-3">
                           <label for="inputdatepostpartumwithin24" class="form-label">Date of postpartum visit within 24hrs</label>
-                          <input type="text" name="datepostpartumwithin24" class="form-control" id="inputdatepostpartumwithin24" placeholder="dd/mm/yyyy">
+                          <input type="date" name="datepostpartumwithin24" class="form-control" id="inputdatepostpartumwithin24" placeholder="dd/mm/yyyy">
                         </div>
                         <div class="col-3">
                           <label for="inputdatepostpartumwithin1w" class="form-label">Date of postpartum visit within 1week</label>
-                          <input type="text" name="datepostpartumwithin1w" class="form-control" id="inputdatepostpartumwithin1w" placeholder="dd/mm/yyyy">
+                          <input type="date" name="datepostpartumwithin1w" class="form-control" id="inputdatepostpartumwithin1w" placeholder="dd/mm/yyyy">
                         </div>
                         <div class="col-3">
                           <label for="inputdangersignmother" class="form-label">Danger Signs (Mother)</label>
@@ -348,11 +356,11 @@
                         </div>
                         <div class="col-3">
                           <label for="inputdatevitagiven" class="form-label">Date Vitamin A Given</label>
-                          <input type="text" name="datevitagiven" class="form-control" id="inputdatevitagiven">
+                          <input type="date" name="datevitagiven" class="form-control" id="inputdatevitagiven">
                         </div>
                         <div class="col-3">
                           <label for="inputdateirongiven" class="form-label">Date Iron Given</label>
-                          <input type="text" name="dateirongiven" class="form-control" id="inputdateirongiven">
+                          <input type="date" name="dateirongiven" class="form-control" id="inputdateirongiven">
                         </div>
                         <div class="col-3">
                           <label for="inputnorirongiven" class="form-label">No. of Iron given</label>
