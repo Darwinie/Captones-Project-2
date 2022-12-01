@@ -21,7 +21,7 @@ $row = $patient_information->fetch_assoc();
 
 
 ?>
-
+<?php include('DetailsModal/EditDetails.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,7 +76,7 @@ $row = $patient_information->fetch_assoc();
                             </form>
         </div>
         <div class="container card col-sm-8 mb-5">
-        <?php include('DetailsModal/EditDetails.php'); ?>  
+          
         
                 <div class="card-body">
                     

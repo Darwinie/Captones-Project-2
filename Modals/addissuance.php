@@ -38,31 +38,31 @@ $con = connection();
                 <div class="card-body">
                 <div class="container">
                 <h3>Add new<b> Item</b></h3>
-                <form class="row g-3 mt-4 mb-3" action="insertpatientinformation.php" method="post">
+                <form class="row g-3 mt-4 mb-3" action="insertissuance.php" method="post">
                 
                     <div class="col-md-4">
                           <label for="inputItemno" class="form-label">Item No.</label>
-                          <input type="text" class="form-control" name="itemno" id="inputItemno">
+                          <input type="text" class="form-control" name="itemno" id="inputitemno">
                         </div>
                         <div class="col-md-4">
                           <label for="inputQuantity" class="form-label">Quantity</label>
-                          <input type="number" class="form-control" name="quantity" id="inputQuantity">
+                          <input type="number" class="form-control" name="issuedquantity" id="inputquantity">
                         </div>
                         <div class="col-md-4">
                             <label for="inputUnitissue" class="form-label">Unit of Issue</label>
-                            <input type="text" class="form-control" name="unitissue" id="inputUnitissue">
+                            <input type="text" class="form-control" name="unitissue" id="inputunitissue">
                           </div>
                         <div class="col-md-4">
                           <label for="inputItemdesc" class="form-label">Item Decription</label>
-                          <input type="text" class="form-control" name="itemdesc" id="inputItemdesc">
+                          <input type="text" class="form-control" name="itemdesc" id="inputitemdesc">
                         </div>
                         <div class="col-md-4">
                           <label for="inputPlaceIssued" class="form-label">Place Issued</label>
-                          <input type="text" class="form-control" name="placeissued" id="inputPlaceIssued">
+                          <input type="text" class="form-control" name="placeissued" id="inputilaceissued">
                         </div>
                         <div class="col-4">
                             <label for="inputExpdate" class="form-label">Expiration Date</label>
-                            <input type="date" class="form-control" name="expdate" id="inputExpdate">
+                            <input type="date" class="form-control" name="expdate" id="inputixpdate">
                         </div>
                         <div class="col-4 mt-3">
                             <button type="submit" name="submit" class="btn btn-primary">Submit</button>

@@ -15,13 +15,8 @@ $sql = "SELECT * FROM patient_information WHERE id = '$id'";
 $patient_information = $con->query($sql) or die ($con->error);
 $row = $patient_information->fetch_assoc();
 
-
-
-
-
-
 ?>
-
+ <?php include('DetailsModal/EditDetailsTB.php'); ?>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,8 +71,7 @@ $row = $patient_information->fetch_assoc();
                             </form>
         </div>
         <div class="container card col-sm-8 mb-5">
-        <?php include('DetailsModal/EditDetailsTB.php'); ?>  
-        
+
                 <div class="card-body">
                     
                     <form class="row g-3 mt-4" action="" method="post">

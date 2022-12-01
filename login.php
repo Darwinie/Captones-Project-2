@@ -25,25 +25,7 @@ if(isset($_POST['login'])){
   }
 }
 ?>
- <div class="wrapper">
-        <div class="heading">
-            <h1>Login Form</h1>
-        </div>
-       <div class="form">
-            <form action="" method="post">
-                <span>
-                    <i class="fa fa-user"></i>
-                    <input type="text" placeholder="Username" name="username" id="username">
-                </span><br>
-                <span>
-                   <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Password" name="password" id="password">
-                </span><br>
-                    <button type="submit" name="login">login</button>
-           </form>
-       </div>
-    </div>
-
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>

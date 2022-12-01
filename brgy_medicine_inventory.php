@@ -12,7 +12,7 @@ $con = connection();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consumables Inventory</title>
+    <title>Medicine Inventory</title>
     <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet" /> -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/fontawesome.css">
@@ -31,11 +31,16 @@ $con = connection();
 
 <?php
 
-$sql = "SELECT * FROM  tbl_consumable_inventory ORDER BY id DESC";
-$consumables = $con->query($sql) or die ($con->error);
-$row = $consumables->fetch_assoc();
-include('Modals/addconsumables.php'); 
-include('Modals/updateconsumables.php');
+$sql = "SELECT * FROM tb_brgymedicine_inventory ORDER BY id DESC";
+$medicine_inventory = $con->query($sql) or die ($con->error);
+$row = $medicine_inventory->fetch_assoc();
+
+include('Modals/addbrgy_medicine.php');
+include('Modals/updatebrgy_medicine.php');
+
+
+
+
 ?>
 
 <!-- ///////////////////////////////////////////////////////////////////////////////
@@ -54,7 +59,6 @@ include('Modals/updateconsumables.php');
                             CONTENT SECTION
   //////////////////////////////////////////////////////////////////////////////// -->
     <!-- Inventory -->
-    
     <div class="container mt-5">
           <div class="card mt-2">
             <div class="card-body">
@@ -64,12 +68,10 @@ include('Modals/updateconsumables.php');
         <div class="table-title">
           <div class="row">
               <div class="col-sm-6">
-                 <h2>Consumables<b> Inventory</b></h2>
-        
-                 <button data-id="<? echo $row['id'] ?>"  onclick="$('#dataid').val($(this).data('id')); $('#consumableInventory')
+                 <h2>Barangay Medicine<b> Inventory</b></h2>
+                 <button data-id="<? echo $row['id'] ?>"  onclick="$('#dataid').val($(this).data('id')); $('#brgymedicineInventory')
                             .modal('show');" class="btn btn-primary" >Add New
-                  </button>   
-                  
+                  </button>
               </div>
 
               <!-- <div class="col-sm-6">
@@ -79,17 +81,18 @@ include('Modals/updateconsumables.php');
                 </form>
              </div> -->
           <div class="tables border shadow border-3 mt-3 mb-5">
-          <table class="table table-striped mt-3" id="consumables" style="width:100%">
+          <table class="table table-striped mt-3" id="medicineInventoryTable" style="width:100%">
             <thead>
-            <tr>
+          <tr>
             <th>#</th>
             <th>Item No.</th>
             <th>Total Quantity</th>
-            <th>Quantity</th>
+            <th>Available Quantity</th>
             <th>Item Description</th>
+            <th>Expiration Date</th>
             <th>Date Added</th>
             <th>Action</th>
-            </tr>
+          </tr>
         </thead>
             <tbody>
                 <?php do{ ?>
@@ -98,7 +101,8 @@ include('Modals/updateconsumables.php');
                         <td><?php echo $row['Item_no']; ?></td>
                         <td><?php echo $row['total_quantity']; ?></td>
                         <td><?php echo $row['quantity']; ?></td>
-                        <td><?php echo $row['item_description']; ?></td>
+                        <td><?php echo $row['item_description_']; ?></td>
+                        <td><?php echo $row['expiration_date']; ?></td>
                         <td><?php echo $row['added_at']; ?></td>
                         <td>
                             <!-- <button data-id="<? echo $note['id'] ?>"  onclick="$('#dataid').val($(this).data('id')); $('#updatemedicineinventory')
@@ -106,7 +110,7 @@ include('Modals/updateconsumables.php');
                             </button> -->
                             <button type="button" class="btn btn-primary editbtn">Edit</button>
                         </td> 
-                  <?php }while($row = $consumables->fetch_assoc()); ?>    
+                  <?php }while($row = $medicine_inventory->fetch_assoc()); ?>    
                   </tr>
                   
             </tbody>
@@ -127,7 +131,7 @@ include('Modals/updateconsumables.php');
   
       
   </section> 
-    
+   
     <!--FOR SIDE BAR-->
     <script src="js/JS_tables.js"></script>
     <script src="js/JS_Reports.js"></script>
@@ -135,7 +139,14 @@ include('Modals/updateconsumables.php');
     <script src= "https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    
+
+   
+  </script>
+   <!--FOR SIDE BAR-->
+   <script src="js/JS_tables.js"></script>
+    <script src="js/JS_Reports.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <!-- FOR PAGINATION -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>   
@@ -144,14 +155,16 @@ include('Modals/updateconsumables.php');
     <!-- FOR PAGINATION TABLE -->
     <script>
       $(document).ready(function () {
-      $('#consumables').DataTable();
+      $('#medicineInventoryTable').DataTable();
       });
     </script>
+
+
  <!-- //SHOWING MODAL AND GETTING THE IDS -->
- <script>
+    <script>
       $(document).ready(function () {
          $('.editbtn').on('click', function () {
-             $('#updateconsumables').modal('show');
+             $('#updatebrgymedicineinventory').modal('show');
 
              $tr = $(this).closest('tr');
 
@@ -166,16 +179,15 @@ include('Modals/updateconsumables.php');
              $('#inputQuantity').val(data[2]);
              $('#inputAQuantity').val(data[3]);
              $('#itemdesc').val(data[4]);
-           
+             $('#xpdate').val(data[5]);
 
          });
 
       });
     </script>
-  </script>
   </body>
 </html>
 
 
-     
-         
+         <!-- THIS IS FOR PREGNANCY TRACKING COLLECTION FORM -->
+        

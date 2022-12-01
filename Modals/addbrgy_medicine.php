@@ -24,14 +24,13 @@ $con = connection();
 
 
 
-
     <!-- Medicine Form-->
-    <div class="modal fade" id="consumableInventory" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="consumableInventory
+    <div class="modal fade" id="brgymedicineInventory" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="brgymedicineInventory
     Label" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="consumableInventoryLabel">Consumables Inventory</h5>
+          <h5 class="modal-title" id="brgymedicineInventoryLabel">Barangay Medicine Inventory</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -39,31 +38,32 @@ $con = connection();
                 <div class="card-body">
                 <div class="container">
                 <h3>Add new<b> Item</b></h3>
-                <form class="row g-3 mt-4 mb-3" action="insertconsumables.php" method="post">
+                <form class="row g-3 mt-4 mb-3" action="insertbrgymedicine.php" method="post">
                 
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                           <label for="inputItemno" class="form-label">Item No.</label>
-                          <input type="text" class="form-control" name="itemno" id="inputitemno">
+                          <input type="text" class="form-control" name="itemno" id="inputItemno">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                           <label for="inputQuantity" class="form-label">Quantity</label>
-                          <input type="number" class="form-control" name="tquantity" id="inputtquantity">
+                          <input type="number" class="form-control" name="tquantity" id="quantity">
                         </div>
                         <div class="col-md-2">
                           <label for="inputQuantity" class="form-label">Available Quantity</label>
                           <input type="number" class="form-control" name="aquantity" id="availablequantity" readonly>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                           <label for="inputItemdesc" class="form-label">Item Decription</label>
                           <input type="text" class="form-control" name="itemdesc" id="inputItemdesc">
                         </div>
-                        <div class="col-8 mt-3">
-                            
-                        </div>  
+                        <div class="col-2">
+                            <label for="inputExpdate" class="form-label">Expiration Date</label>
+                            <input type="date" class="form-control" name="expdate" id="inputExpdate">
+                        </div>
                         <div class="col-4 mt-3">
                             <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-                        </div>     
-                        
+                        </div>
+                    
                 </form>
                 </div>
                 </div>
@@ -82,13 +82,12 @@ $con = connection();
 
   <script>
   var $input2 = document.getElementById('availablequantity');
-  var $input1 = document.getElementById('inputtquantity');
+  var $input1 = document.getElementById('quantity');
   $input1.addEventListener('keyup', function()
   {
     $input2.value = $input1.value;
   });
   </script>
-
 </body>
 </html>
 

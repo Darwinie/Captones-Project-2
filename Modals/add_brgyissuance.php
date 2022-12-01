@@ -24,14 +24,13 @@ $con = connection();
 
 
 
-
     <!-- Medicine Form-->
-    <div class="modal fade" id="consumableInventory" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="consumableInventory
+    <div class="modal fade" id="brgyissuanceinventory" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="brgyissuanceinventory
     Label" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="consumableInventoryLabel">Consumables Inventory</h5>
+          <h5 class="modal-title" id="brgyissuanceinventoryLabel">Issuance Inventory</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -39,7 +38,7 @@ $con = connection();
                 <div class="card-body">
                 <div class="container">
                 <h3>Add new<b> Item</b></h3>
-                <form class="row g-3 mt-4 mb-3" action="insertconsumables.php" method="post">
+                <form class="row g-3 mt-4 mb-3" action="insertbgryissuance.php" method="post">
                 
                     <div class="col-md-4">
                           <label for="inputItemno" class="form-label">Item No.</label>
@@ -47,23 +46,28 @@ $con = connection();
                         </div>
                         <div class="col-md-4">
                           <label for="inputQuantity" class="form-label">Quantity</label>
-                          <input type="number" class="form-control" name="tquantity" id="inputtquantity">
-                        </div>
-                        <div class="col-md-2">
-                          <label for="inputQuantity" class="form-label">Available Quantity</label>
-                          <input type="number" class="form-control" name="aquantity" id="availablequantity" readonly>
+                          <input type="number" class="form-control" name="issuedquantity" id="inputquantity">
                         </div>
                         <div class="col-md-4">
+                            <label for="inputUnitissue" class="form-label">Unit of Issue</label>
+                            <input type="text" class="form-control" name="unitissue" id="inputunitissue">
+                          </div>
+                        <div class="col-md-4">
                           <label for="inputItemdesc" class="form-label">Item Decription</label>
-                          <input type="text" class="form-control" name="itemdesc" id="inputItemdesc">
+                          <input type="text" class="form-control" name="itemdesc" id="inputitemdesc">
                         </div>
-                        <div class="col-8 mt-3">
-                            
-                        </div>  
+                        <div class="col-md-4">
+                          <label for="inputPlaceIssued" class="form-label">Place Issued</label>
+                          <input type="text" class="form-control" name="placeissued" id="inputilaceissued">
+                        </div>
+                        <div class="col-4">
+                            <label for="inputExpdate" class="form-label">Expiration Date</label>
+                            <input type="date" class="form-control" name="expdate" id="inputixpdate">
+                        </div>
                         <div class="col-4 mt-3">
                             <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-                        </div>     
-                        
+                        </div>
+                    
                 </form>
                 </div>
                 </div>
@@ -78,19 +82,9 @@ $con = connection();
    
   <script src="assets/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
-
-  <script>
-  var $input2 = document.getElementById('availablequantity');
-  var $input1 = document.getElementById('inputtquantity');
-  $input1.addEventListener('keyup', function()
-  {
-    $input2.value = $input1.value;
-  });
-  </script>
-
+  
 </body>
 </html>
 
 
-  
+    

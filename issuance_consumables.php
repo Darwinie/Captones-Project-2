@@ -31,11 +31,11 @@ $con = connection();
 
 <?php
 
-$sql = "SELECT * FROM  tbl_consumable_inventory ORDER BY id DESC";
-$consumables = $con->query($sql) or die ($con->error);
-$row = $consumables->fetch_assoc();
-include('Modals/addconsumables.php'); 
-include('Modals/updateconsumables.php');
+$sql = "SELECT * FROM  tbl_issuance_consumables ORDER BY id DESC";
+$issueconsumables = $con->query($sql) or die ($con->error);
+$row = $issueconsumables->fetch_assoc();
+include('Modals/consumablesissuance.php'); 
+
 ?>
 
 <!-- ///////////////////////////////////////////////////////////////////////////////
@@ -64,9 +64,9 @@ include('Modals/updateconsumables.php');
         <div class="table-title">
           <div class="row">
               <div class="col-sm-6">
-                 <h2>Consumables<b> Inventory</b></h2>
+                 <h2>Consumables<b> Issuance</b></h2>
         
-                 <button data-id="<? echo $row['id'] ?>"  onclick="$('#dataid').val($(this).data('id')); $('#consumableInventory')
+                 <button data-id="<? echo $row['id'] ?>"  onclick="$('#dataid').val($(this).data('id')); $('#consumableissuancemodal')
                             .modal('show');" class="btn btn-primary" >Add New
                   </button>   
                   
@@ -84,11 +84,9 @@ include('Modals/updateconsumables.php');
             <tr>
             <th>#</th>
             <th>Item No.</th>
-            <th>Total Quantity</th>
-            <th>Quantity</th>
+            <th>Quantity(Pcs)</th>
             <th>Item Description</th>
-            <th>Date Added</th>
-            <th>Action</th>
+            <th>Date Issued</th>
             </tr>
         </thead>
             <tbody>
@@ -96,17 +94,11 @@ include('Modals/updateconsumables.php');
                 <tr>
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['Item_no']; ?></td>
-                        <td><?php echo $row['total_quantity']; ?></td>
                         <td><?php echo $row['quantity']; ?></td>
                         <td><?php echo $row['item_description']; ?></td>
                         <td><?php echo $row['added_at']; ?></td>
-                        <td>
-                            <!-- <button data-id="<? echo $note['id'] ?>"  onclick="$('#dataid').val($(this).data('id')); $('#updatemedicineinventory')
-                            .modal('show');" class="btn btn-primary" >click me
-                            </button> -->
-                            <button type="button" class="btn btn-primary editbtn">Edit</button>
-                        </td> 
-                  <?php }while($row = $consumables->fetch_assoc()); ?>    
+
+                  <?php }while($row = $issueconsumables->fetch_assoc()); ?>    
                   </tr>
                   
             </tbody>
@@ -147,31 +139,7 @@ include('Modals/updateconsumables.php');
       $('#consumables').DataTable();
       });
     </script>
- <!-- //SHOWING MODAL AND GETTING THE IDS -->
- <script>
-      $(document).ready(function () {
-         $('.editbtn').on('click', function () {
-             $('#updateconsumables').modal('show');
-
-             $tr = $(this).closest('tr');
-
-             var data = $tr.children("td").map(function() {
-                return $(this).text();
-             }).get();
-
-             console.log(data);
-
-             $('#id').val(data[0]);
-             $('#itemno').val(data[1]);
-             $('#inputQuantity').val(data[2]);
-             $('#inputAQuantity').val(data[3]);
-             $('#itemdesc').val(data[4]);
-           
-
-         });
-
-      });
-    </script>
+ 
   </script>
   </body>
 </html>

@@ -109,10 +109,11 @@ $con = connection();
                 <ul class="Menu">
                   <li><a class="link_name" href="#">Inventory</a></li>
                   <li><a href="medicine_Inventory.php">Medicine</a></li>
-                  <li><a href="medicine_Inventory.php">Barangay Medicine</a></li>
+                  <li><a href="brgy_medicine_inventory.php">Barangay Medicine</a></li>
                   <li><a href="consumables_Inventory.php">Consumables</a></li>
-                  <li><a href="issuance_Inventory.php">Issuance</a></li>
-                  <li><a href="issuance_Inventory.php">Barangay Issuance</a></li>
+                  <li><a href="issuance_consumables.php">Consumables Issuance</a></li>
+                  <li><a href="issuance_Inventory.php">Medicine Issuance</a></li>
+                  <li><a href="brgymedicine_issuance.php">Barangay Issuance</a></li>
                 </ul>
               </li>
               <li>

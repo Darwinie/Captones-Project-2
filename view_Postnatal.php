@@ -15,13 +15,8 @@ $sql = "SELECT * FROM patient_information WHERE id = '$id'";
 $patient_information = $con->query($sql) or die ($con->error);
 $row = $patient_information->fetch_assoc();
 
-
-
-
-
-
 ?>
-
+<?php include('DetailsModal/EditPostnatal.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

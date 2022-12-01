@@ -12,7 +12,7 @@ $con = connection();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consumables Inventory</title>
+    <title>Issuance Inventory</title>
     <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet" /> -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/fontawesome.css">
@@ -29,13 +29,14 @@ $con = connection();
 <body>
 
 
+
 <?php
 
-$sql = "SELECT * FROM  tbl_consumable_inventory ORDER BY id DESC";
-$consumables = $con->query($sql) or die ($con->error);
-$row = $consumables->fetch_assoc();
-include('Modals/addconsumables.php'); 
-include('Modals/updateconsumables.php');
+$sql = "SELECT * FROM tbl_brgyissuance_inventory ORDER BY id DESC";
+$issuance = $con->query($sql) or die ($con->error);
+$row = $issuance->fetch_assoc();
+
+include('Modals/add_brgyissuance.php');
 ?>
 
 <!-- ///////////////////////////////////////////////////////////////////////////////
@@ -56,6 +57,7 @@ include('Modals/updateconsumables.php');
     <!-- Inventory -->
     
     <div class="container mt-5">
+    
           <div class="card mt-2">
             <div class="card-body">
               <div class="card-title">
@@ -64,49 +66,45 @@ include('Modals/updateconsumables.php');
         <div class="table-title">
           <div class="row">
               <div class="col-sm-6">
-                 <h2>Consumables<b> Inventory</b></h2>
-        
-                 <button data-id="<? echo $row['id'] ?>"  onclick="$('#dataid').val($(this).data('id')); $('#consumableInventory')
-                            .modal('show');" class="btn btn-primary" >Add New
-                  </button>   
+                 <h2>Barangay Medicine<b> Issuance Inventory</b></h2>
+                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#brgyissuanceinventory">
+                   Issue Medicine
+                 </button>  
                   
               </div>
-
-              <!-- <div class="col-sm-6">
+<!-- 
+              <div class="col-sm-6">
                 <form action="result.php" method="get" class="d-flex" role="search">
                   <input class="form-control me-2" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
                   <button class="btn btn-outline-success" type="submit" >Search</button>
                 </form>
              </div> -->
-          <div class="tables border shadow border-3 mt-3 mb-5">
-          <table class="table table-striped mt-3" id="consumables" style="width:100%">
+             <div class="tables border shadow border-3 mt-3 mb-5">
+          <table class="table table-striped mt-3" id="medicineInventoryTable" style="width:100%">
             <thead>
-            <tr>
+          <tr>
             <th>#</th>
             <th>Item No.</th>
-            <th>Total Quantity</th>
-            <th>Quantity</th>
+            <th>Quantity(Pcs)</th>
             <th>Item Description</th>
-            <th>Date Added</th>
-            <th>Action</th>
-            </tr>
+            <th>Unit of Issue</th>
+            <th>Place Issued</th>
+            <th>Date Issued</th>
+           
+          </tr>
         </thead>
             <tbody>
                 <?php do{ ?>
                 <tr>
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['Item_no']; ?></td>
-                        <td><?php echo $row['total_quantity']; ?></td>
                         <td><?php echo $row['quantity']; ?></td>
+                        <td><?php echo $row['unit_of_ssue']; ?></td>
                         <td><?php echo $row['item_description']; ?></td>
+                        <td><?php echo $row['place_issued']; ?></td>
                         <td><?php echo $row['added_at']; ?></td>
-                        <td>
-                            <!-- <button data-id="<? echo $note['id'] ?>"  onclick="$('#dataid').val($(this).data('id')); $('#updatemedicineinventory')
-                            .modal('show');" class="btn btn-primary" >click me
-                            </button> -->
-                            <button type="button" class="btn btn-primary editbtn">Edit</button>
-                        </td> 
-                  <?php }while($row = $consumables->fetch_assoc()); ?>    
+                
+                  <?php }while($row = $issuance->fetch_assoc()); ?>    
                   </tr>
                   
             </tbody>
@@ -127,15 +125,14 @@ include('Modals/updateconsumables.php');
   
       
   </section> 
-    
+   
     <!--FOR SIDE BAR-->
-    <script src="js/JS_tables.js"></script>
-    <script src="js/JS_Reports.js"></script>
+
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src= "https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    
+ 
     <!-- FOR PAGINATION -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>   
@@ -144,38 +141,15 @@ include('Modals/updateconsumables.php');
     <!-- FOR PAGINATION TABLE -->
     <script>
       $(document).ready(function () {
-      $('#consumables').DataTable();
+      $('#issuanceTable').DataTable();
       });
     </script>
- <!-- //SHOWING MODAL AND GETTING THE IDS -->
- <script>
-      $(document).ready(function () {
-         $('.editbtn').on('click', function () {
-             $('#updateconsumables').modal('show');
-
-             $tr = $(this).closest('tr');
-
-             var data = $tr.children("td").map(function() {
-                return $(this).text();
-             }).get();
-
-             console.log(data);
-
-             $('#id').val(data[0]);
-             $('#itemno').val(data[1]);
-             $('#inputQuantity').val(data[2]);
-             $('#inputAQuantity').val(data[3]);
-             $('#itemdesc').val(data[4]);
-           
-
-         });
-
-      });
-    </script>
+   
+  </script>
+   
   </script>
   </body>
 </html>
 
 
-     
-         
+            

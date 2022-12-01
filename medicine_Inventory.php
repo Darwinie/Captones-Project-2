@@ -69,9 +69,6 @@ include('Modals/updatemedicine.php');
           <div class="row">
               <div class="col-sm-6">
                  <h2>Medicine<b> Inventory</b></h2>
-                 <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#medicineInventory">
-                   Add New
-                 </button>        -->
                  <button data-id="<? echo $row['id'] ?>"  onclick="$('#dataid').val($(this).data('id')); $('#medicineInventory')
                             .modal('show');" class="btn btn-primary" >Add New
                   </button>
@@ -162,6 +159,8 @@ include('Modals/updatemedicine.php');
       });
     </script>
 
+
+ <!-- //SHOWING MODAL AND GETTING THE IDS -->
     <script>
       $(document).ready(function () {
          $('.editbtn').on('click', function () {

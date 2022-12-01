@@ -32,9 +32,10 @@ $con = connection();
 
 <?php
 
-$sql = "SELECT * FROM patient_information ORDER BY id DESC";
-$patient_information = $con->query($sql) or die ($con->error);
-$row = $patient_information->fetch_assoc();
+$sql = "SELECT * FROM tbl_issuance_Inventory ORDER BY id DESC";
+$issuance = $con->query($sql) or die ($con->error);
+$row = $issuance->fetch_assoc();
+
 include('Modals/addissuance.php');
 ?>
 
@@ -67,7 +68,7 @@ include('Modals/addissuance.php');
               <div class="col-sm-6">
                  <h2>Issuance<b> Inventory</b></h2>
                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Issuanceinventory">
-                   Add New
+                   Issue Medicine
                  </button>  
                   
               </div>
@@ -78,49 +79,32 @@ include('Modals/addissuance.php');
                   <button class="btn btn-outline-success" type="submit" >Search</button>
                 </form>
              </div> -->
-          <div class="tables border shadow border-3 mt-3 mb-5">
-          <table class="table table-striped mt-3" id="issuanceTable" style="width:100%">
+             <div class="tables border shadow border-3 mt-3 mb-5">
+          <table class="table table-striped mt-3" id="medicineInventoryTable" style="width:100%">
             <thead>
           <tr>
             <th>#</th>
             <th>Item No.</th>
-            <th>Quantity</th>
+            <th>Quantity(Pcs)</th>
             <th>Item Description</th>
             <th>Unit of Issue</th>
             <th>Place Issued</th>
             <th>Date Issued</th>
-            <th>Action</th>
+           
           </tr>
         </thead>
             <tbody>
-            
+                <?php do{ ?>
                 <tr>
-                        <td>1</td>
-                        <td>150</td>
-                        <td>ITM-0001</td>
-                        <td>Amoxcicillin Ascorbic Acid(25g)</td>
-                        <td>box</td>
-                        <td>Brgy.4</td>
-                        <td>11/13/2022</td>
-                        <td>
-                            <div class="col-2">
-                            <a href="view_medicalrecord.php?id=<?php echo $row['id']; ?>" class="btn btn-primary mb-2">view</a>
-                            </div>   
-                        </td> 
-                  </tr>
-                  <tr>
-                        <td>2</td>
-                        <td>150</td>
-                        <td>ITM-0002</td>
-                        <td>Bioflu Acidic(25g)</td>
-                        <td>Capsule</td>
-                        <td>Brgy.1</td>
-                        <td>11/13/2022</td>
-                        <td>
-                            <div class="col-2">
-                            <a href="view_medicalrecord.php?id=<?php echo $row['id']; ?>" class="btn btn-primary mb-2">view</a>
-                            </div>   
-                        </td> 
+                        <td><?php echo $row['id']; ?></td>
+                        <td><?php echo $row['Item_no']; ?></td>
+                        <td><?php echo $row['quantity']; ?></td>
+                        <td><?php echo $row['unit_of_ssue']; ?></td>
+                        <td><?php echo $row['item_description']; ?></td>
+                        <td><?php echo $row['place_issued']; ?></td>
+                        <td><?php echo $row['added_at']; ?></td>
+                
+                  <?php }while($row = $issuance->fetch_assoc()); ?>    
                   </tr>
                   
             </tbody>
@@ -143,8 +127,7 @@ include('Modals/addissuance.php');
   </section> 
    
     <!--FOR SIDE BAR-->
-    <script src="js/JS_tables.js"></script>
-    <script src="js/JS_Reports.js"></script>
+
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src= "https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
@@ -169,5 +152,4 @@ include('Modals/addissuance.php');
 </html>
 
 
-         <!-- THIS IS FOR PREGNANCY TRACKING COLLECTION FORM -->
-        
+            

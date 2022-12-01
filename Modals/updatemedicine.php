@@ -37,7 +37,7 @@ $con = connection();
             <div class="card">
                 <div class="card-body">
                 <div class="container">
-                <h3>Add new<b> Item</b></h3>
+                <h3>Add<b> Quantity</b></h3>
                 <form class="row g-3 mt-4 mb-3" action="updatemedicine.php" method="post">
                 
                     <div class="col-md-2">
@@ -49,7 +49,7 @@ $con = connection();
                         </div>
                        
                         <div class="col-md-2">
-                          <label for="inputQuantity" class="form-label">Quantity</label>
+                          
                           <input type="hidden" class="form-control" name="tquantity" id="inputQuantity">
                         </div>
 

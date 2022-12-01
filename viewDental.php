@@ -16,7 +16,7 @@ $dental_patients = $con->query($sql) or die ($con->error);
 $row = $dental_patients->fetch_assoc();
 
 ?>
-
+<?php include('DetailsModal/EditDetailsDental.php'); ?>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,7 +57,7 @@ $row = $dental_patients->fetch_assoc();
   <!-- ///////////////////////////////////////////////////////////////////////////////
                             CONTENT SECTION
   //////////////////////////////////////////////////////////////////////////////// -->
-  <?php include('DetailsModal/EditDetailsDental.php'); ?>  
+  
         <h3 class="mt-4 justify-content-center text-center">Patient Information Details</h3>
         <div class="col-md-10 text-end mb-2">
                             <form action="deletepatientinformation.php" method="post">
