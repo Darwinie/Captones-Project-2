@@ -2,9 +2,6 @@
 include_once("connections/connections.php");
 $con = connection();
 
-if(!isset($_SESSION)){
-  session_start();
-}
 if(isset($_POST['login'])){
 
     $username = $_POST['username'];
@@ -18,12 +15,23 @@ if(isset($_POST['login'])){
   if($total > 0){
     $_SESSION['username'] = $row['username'];
     $_SESSION['access'] = $row['access'];
+    $_SESSION['loggedIn'] = true;
 
     echo header("Location: Adminhealthoffice.php");
   }else{
-    echo "Please check your username and password";
+    $_SESSION["error"] = "Please check your username and password";
+    // header("location: login.php");
   }
+} else {
+ if(isset($_SESSION['loggedIn']) == true){
+    header("Location: Adminhealthoffice.php");
+    exit;
+    }
+    // eto dinagdag ko din.
+    // kasi pag nag home page tapos nag click ng login dapat hindi na mag lologin kasi naka login naman na sya.
 }
+
+
 ?>
  
 <!DOCTYPE html>
@@ -43,7 +51,13 @@ if(isset($_POST['login'])){
             <h1>Login Form</h1>
         </div>
        <div class="form">
-            <form action="" method="post">
+        <?php
+                    if(isset($_SESSION["error"])){
+                        $error = $_SESSION["error"];
+                        echo "<span class='text-danger'>$error</span>";
+                    }
+                ?>  
+            <form action="login.php" method="post">
                 <span>
                     <i class="fa fa-user"></i>
                     <input type="text" placeholder="Username" name="username" id="username">
@@ -63,3 +77,7 @@ if(isset($_POST['login'])){
   
 </body>
 </html>
+
+<?php
+    unset($_SESSION["error"]);
+?>
