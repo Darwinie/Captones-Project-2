@@ -1,8 +1,4 @@
 <?php
-if(!isset($_SESSION)){
-    session_start();
-
-}
 include_once("connections/connections.php");
 $con = connection();
 
@@ -49,15 +45,15 @@ $row = $user_accounts->fetch_assoc();
                             CONTENT SECTION
   //////////////////////////////////////////////////////////////////////////////// -->
         <h3 class="mt-4 justify-content-center text-center">User Account Details</h3>
+        <?php if($_SESSION['access'] == "Administrator"){?>
         <div class="col-md-10 text-end mb-2">
             <form action="deletepatientinformation.php" method="post">
                 <!-- This delete code is for admin only to see -->
-                <?php if($_SESSION['Access'] == "administrator"){?>
                 <button type="submit" name="delete" class="btn btn-danger">Delete</button>
                 <input type="hidden" name="ID" value="<?php echo $row['id']; ?>">
-                <?php } ?>
             </form>
         </div>
+        <?php } ?>
         <?php include('DetailsModal/EditDetailsUserAccounts.php'); ?>  
         <div class="container col-sm-8 mb-5">
          <div class="card ">
@@ -80,37 +76,37 @@ $row = $user_accounts->fetch_assoc();
                 <div class="row g-3 mt-4 mb-3">
                         <div class="col-md-4">
                           <label for="inputLastname" class="form-label">Last Name</label>
-                          <input type="text" class="form-control" name="lastname" value="<?php echo $row['last_name']; ?>" id="inputLastname">
+                          <input type="text" class="form-control" name="lastname" value="<?php echo $row['last_name']; ?>" id="inputLastname" readonly>
                         </div>
                         <div class="col-md-4">
                           <label for="inputFirstname" class="form-label">First Name</label>
-                          <input type="text" class="form-control" name="firstname" value="<?php echo $row['first_name']; ?>" id="inputFirstname">
+                          <input type="text" class="form-control" name="firstname" value="<?php echo $row['first_name']; ?>" id="inputFirstname" readonly>
                         </div>
                         <div class="col-md-4">
                             <label for="inputMiddlename" class="form-label">Middle Name</label>
-                            <input type="text" class="form-control" name="middlename" value="<?php echo $row['middle_name']; ?>" id="inputMiddlename">
+                            <input type="text" class="form-control" name="middlename" value="<?php echo $row['middle_name']; ?>" id="inputMiddlename" readonly>
                           </div>
                         <div class="col-md-4">
                           <label for="inputContactno" class="form-label">Contact No.</label>
-                          <input type="text" class="form-control" name="contactno" value="<?php echo $row['contact_no']; ?>" id="inputContactno">
+                          <input type="text" class="form-control" name="contactno" value="<?php echo $row['contact_no']; ?>" id="inputContactno" readonly>
                         </div>
                         <div class="col-md-4">
                           <label for="inputAddress" class="form-label">Address</label>
-                          <input type="text" class="form-control" name="address" value="<?php echo $row['adress']; ?>" id="inputAddress">
+                          <input type="text" class="form-control" name="address" value="<?php echo $row['adress']; ?>" id="inputAddress" readonly>
                         </div>
                         <div class="col-4">
                             <label for="inputUsername" class="form-label">User Name</label>
-                            <input type="email" class="form-control" name="username" value="<?php echo $row['username']; ?>" id="inputUsername">
+                            <input type="email" class="form-control" name="username" value="<?php echo $row['username']; ?>" id="inputUsername" readonly>
                         </div>
                         <div class="col-4">
                             <label for="inputPassword" class="form-label">Password</label>
-                            <input type="text" class="form-control" name="password" value="<?php echo $row['password']; ?>" id="inputPassword">
+                            <input type="text" class="form-control" name="password" value="<?php echo $row['password']; ?>" id="inputPassword" readonly>
                         </div>
                         <div class="col-3">
                             <label for="inputAcess" class="form-label">Access</label>
-                            <select id="inputAcess" name="acess" class="form-select">
-                              <option selected>Input Access Type</option>
-                              <option <?php echo ($row['access'] == "Admin")? 'selected' : '' ?>>Admin</option>
+                            <select id="inputAcess" name="access" class="form-select" required disabled>
+                              <option value="">Input Access Type</option>
+                              <option <?php echo ($row['access'] == "Administrator")? 'selected' : '' ?>>Administrator</option>
                               <option <?php echo ($row['access'] == "Doctor")? 'selected' : '' ?>>Doctor</option>
                               <option <?php echo ($row['access'] == "Dentist")? 'selected' : '' ?>>Dentist</option>
                               <option <?php echo ($row['access'] == "Nurse")? 'selected' : '' ?>>Nurse</option>

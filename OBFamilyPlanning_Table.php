@@ -1,6 +1,13 @@
 <?php
 include_once("connections/connections.php");
 
+$access = ["Administrator", "Midwife", "Nurse"];
+if (stripos(json_encode($access), $_SESSION['access']) == false) {
+  $_SESSION['message'] = "You do not have access to OB Family Planning page. Please contact Administrator.";
+
+  echo $_SESSION['message'];
+  header("Location: Adminhealthoffice.php");
+}
 
 $con = connection();
 include('Modals/familyPlanModal.php');
@@ -24,7 +31,6 @@ include('Modals/familyPlanModal.php');
     <link rel="stylesheet" href="css/Sidebardesign.css">
     <!-- Boxiocns CDN Link -->
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
-    <script src="//code.jquery.com/jquery-1.10.2js"></script>
     <!-- FOR PAGINATION DESIGN -->
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"/>
     <link rel="stylesheet"  href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css"/>
@@ -37,7 +43,7 @@ $sql = "SELECT * FROM patient_information WHERE record_type = 'Family Planning' 
 $patient_information = $con->query($sql) or die ($con->error);
 $row = $patient_information->fetch_assoc();
 if($row == !null){
-  echo "No Data Available";
+  // echo "No Data Available";
 
 }
 else{
@@ -48,17 +54,23 @@ else{
 include_once('Modals/familyPlanModal.php');
 ?>
 
-  <!-- ///////////////////////////////////////////////////////////////////////////////
-                            CONTENT SECTION
-  //////////////////////////////////////////////////////////////////////////////// -->
-   
+<nav class="navbar navbar-expand-md navbar-dark bg-success shadow pt-1.3 pb-1.3">
+   <?php include('navbar.php'); ?>
+ </nav>
 
-    <!-- Family Planning-->
+ <section id="home">
+  <?php include('navigation-bar.php'); ?> 
 
-    <div class="table-wrapper">
-        <div class="table-title">
+  <!--View of LIst USERS -->
+  <div class="container mt-5">
+    <div class="card mt-2">
+      <div class="card-body">
+        <div class="card-title">
           <div class="row">
-              <div class="col-sm-6">
+            <div class="table">
+              <div class="table-title">
+                <div class="row">
+                  <div class="col-sm-6">
                  <h2>List of OB <b>Family Planning</b></h2>
                  <!-- Button trigger modal -->
                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#familyplanning">
@@ -99,24 +111,28 @@ include_once('Modals/familyPlanModal.php');
                         </td> 
                   </tr>
                   <?php }while($row = $patient_information->fetch_assoc()); ?>
-            </tbody>
-        </table>
-      </div>
-      </div>
+                 </tbody>
+               </table>
+             </div>
+           </div>
+         </div>
+       </div>
+       
+       
+       
      </div>
-    </div>
+   </div>
+ </div>
+</div>
+</div>
 
-  </section> 
+
+
+</section> 
    
-    <!--FOR SIDE BAR-->
+
     <script src="js/JS_tables.js"></script>
     <script src="js/JS_Reports.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <!--FOR SIDE BAR-->
-    <script src="js/JS_tables.js"></script>
-    <script src="js/JS_Reports.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <!-- FOR PAGINATION -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

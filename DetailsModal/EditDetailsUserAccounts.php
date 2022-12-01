@@ -3,8 +3,6 @@ include_once("connections/connections.php");
 $con = connection();
 // $id = $_GET['ID'];
 
-
-
 $user_accounts = $con->query($sql) or die ($con->error);
 $row = $user_accounts->fetch_assoc();
 
@@ -76,9 +74,9 @@ $row = $user_accounts->fetch_assoc();
                         </div>
                         <div class="col-3">
                             <label for="inputAcess" class="form-label">Access</label>
-                            <select id="inputAcess" name="acess" class="form-select">
-                              <option selected>Input Access Type</option>
-                              <option <?php echo ($row['access'] == "Admin")? 'selected' : '' ?>>Admin</option>
+                            <select id="inputAcess" name="access" class="form-select" required>
+                              <option value="">Input Access Type</option>
+                              <option <?php echo ($row['access'] == "Administrator")? 'selected' : '' ?>>Administrator</option>
                               <option <?php echo ($row['access'] == "Doctor")? 'selected' : '' ?>>Doctor</option>
                               <option <?php echo ($row['access'] == "Dentist")? 'selected' : '' ?>>Dentist</option>
                               <option <?php echo ($row['access'] == "Nurse")? 'selected' : '' ?>>Nurse</option>
@@ -110,10 +108,8 @@ $row = $user_accounts->fetch_assoc();
     </div>
   </div>
 
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   
-
 
 </body>
 </html>

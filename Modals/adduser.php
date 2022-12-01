@@ -69,16 +69,16 @@ $con = connection();
                             <input type="text" class="form-control" name="password" id="inputPassword">
                         </div>
                         <div class="col-3">
-                            <label for="inputAcess" class="form-label">Access</label>
-                            <select id="inputAcess" name="acess" class="form-select">
+                            <label for="inputAccess" class="form-label">Access</label>
+                            <select id="inputAccess" name="access" class="form-select">
                               <option selected>Input Access Type</option>
-                              <option>Admin</option>
+                              <option>Administrator</option>
                               <option>Doctor</option>
                               <option>Dentist</option>
                               <option>Nurse</option>
                               <option>Barangay Healthworker</option>
                               <option>Midwife</option>
-                              <option>Baranagy Midwife</option>
+                              <option>Barangay Midwife</option>
                             </select>
                         </div>
                         <div class="col-4 mt-3">
@@ -100,7 +100,6 @@ $con = connection();
     </div>
    </div>
    
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   
 </body>

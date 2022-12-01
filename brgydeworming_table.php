@@ -4,6 +4,13 @@ include_once("connections/connections.php");
 
 $con = connection();
 
+$access = ["Administrator", "Midwife", "Nurse"];
+if (stripos(json_encode($access), $_SESSION['access']) == false) {
+  $_SESSION['message'] = "You do not have access to Barangay - deworming page. Please contact Administrator.";
+
+  echo $_SESSION['message'];
+  header("Location: Adminhealthoffice.php");
+}
 
 ?>
  <?php //include('Modals/dewormingModal.php'); ?>

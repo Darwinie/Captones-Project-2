@@ -69,7 +69,7 @@ $row = $patient_information->fetch_assoc();
         <div class="col-md-10 text-end mb-2">
                             <form action="deletepatientinformation.php" method="post">
                                 <!-- This delete code is for admin only to see -->
-                                <?php if($_SESSION['access'] == "Admin"){?>
+                                <?php if($_SESSION['access'] == "Administrator"){?>
                                 <button type="submit" name="delete" class="btn btn-danger">Delete</button>
                                 <input type="hidden" name="ID" value="<?php echo $row['id']; ?>">
                                 <?php } ?>
@@ -365,7 +365,6 @@ $row = $patient_information->fetch_assoc();
     <!--FOR SIDE BAR-->
     <script src="js/JS_tables.js"></script>
     <script src="js/JS_Reports.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src= "https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>

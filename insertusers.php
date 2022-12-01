@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
   $addrs = $_POST['address'];
   $uname = $_POST['username'];
   $pass = $_POST['password'];
-  $access = $_POST['acess'];
+  $access = $_POST['access'];
  
   $sql = "INSERT INTO `user_accounts`(`last_name`, `first_name`, `middle_name`, 
   `contact_no`, `adress`, `username`, `password`, `access`) VALUES ('$lname','$fname',
@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
 //                 }
 //    }
 
-   echo header("location: Adminhealthoffice.php");
+   echo header("location: usermaintenanceTable.php");
 }
 ?>
 

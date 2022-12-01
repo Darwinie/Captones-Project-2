@@ -2,8 +2,8 @@
 session_start();
 unset($_SESSION['UserLogin']);
 unset($_SESSION['Access']);
-
-echo header("Location: WebHome.php");
+session_destroy();
+echo header("Location: index.php");
 
 
 ?>

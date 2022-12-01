@@ -3,6 +3,13 @@ include_once("connections/connections.php");
 
 
 $con = connection();
+$access = ["Administrator", "Midwife", "Nurse"];
+if (stripos(json_encode($access), $_SESSION['access']) == false) {
+  $_SESSION['message'] = "You do not have access to OB Pre-natal page. Please contact Administrator.";
+
+  echo $_SESSION['message'];
+  header("Location: Adminhealthoffice.php");
+}
 
 
 ?>
@@ -22,7 +29,6 @@ $con = connection();
     <link rel="stylesheet" href="css/Sidebardesign.css">
     <!-- Boxiocns CDN Link -->
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
-    <script src="//code.jquery.com/jquery-1.10.2js"></script>
     <!-- FOR PAGINATION DESIGN -->
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"/>
     <link rel="stylesheet"  href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css"/>
@@ -37,14 +43,23 @@ $row = $patient_information->fetch_assoc();
 
 ?>
 
-  <!-- ///////////////////////////////////////////////////////////////////////////////
-                            CONTENT SECTION
-  //////////////////////////////////////////////////////////////////////////////// -->
-    <!-- OB PRENATAL -->
-    <div class="table-wrapper">
-        <div class="table-title">
+<nav class="navbar navbar-expand-md navbar-dark bg-success shadow pt-1.3 pb-1.3">
+   <?php include('navbar.php'); ?>
+ </nav>
+
+ <section id="home">
+  <?php include('navigation-bar.php'); ?> 
+
+  <!--View of LIst USERS -->
+  <div class="container mt-5">
+    <div class="card mt-2">
+      <div class="card-body">
+        <div class="card-title">
           <div class="row">
-              <div class="col-sm-6">
+            <div class="table">
+              <div class="table-title">
+                <div class="row">
+                  <div class="col-sm-6">
                  <h2>List of OB <b>Pre-Natal</b></h2>
                  <?php include('Modals/prenatalModal.php'); ?>   
               </div>
@@ -87,19 +102,28 @@ $row = $patient_information->fetch_assoc();
                         </td> 
                   </tr>
                   <?php }while($row = $patient_information->fetch_assoc()); ?>
-            </tbody>
-        </table>
-      </div>
-      </div>
+                 </tbody>
+               </table>
+             </div>
+           </div>
+         </div>
+       </div>
+       
+       
+       
      </div>
-    </div>
+   </div>
+ </div>
+</div>
+</div>
 
-  </section> 
+
+
+</section> 
    
     <!--FOR SIDE BAR-->
     <script src="js/JS_tables.js"></script>
     <script src="js/JS_Reports.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <!-- FOR PAGINATION -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

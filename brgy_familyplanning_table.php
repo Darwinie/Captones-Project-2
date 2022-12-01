@@ -3,6 +3,13 @@ include_once("connections/connections.php");
 
 $con = connection();
 
+$access = ["Administrator", "Barangay Midwife", "Barangay Healthworker"];
+if (stripos(json_encode($access), $_SESSION['access']) == false) {
+  $_SESSION['message'] = "You do not have access to Barangay Family Planning page. Please contact Administrator.";
+
+  echo $_SESSION['message'];
+  header("Location: Adminhealthoffice.php");
+}
 
 ?>
 

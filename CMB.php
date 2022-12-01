@@ -57,7 +57,8 @@
             </li>
           </ul>
     </div>
-    
+      <form action="">
+        <button></button>
         <!-- THIS IS CMB REPORT -->
         <div id="CMBReport" class="CMB">
         <div class="card mt-2">
@@ -68,7 +69,7 @@
                      <h3>COMMUNITY BASED MONITORING <b>REPORT</b></h3>
                   </div>
                   <div class="brgyselector">
-                  <select class="form-select" aria-label="Default select example">
+                  <select class="form-select" name="choosebarangay" aria-label="Default select example">
                     <option selected>Select your Barangay</option>
                     <option value="1">Sandiego</option>
                     <option value="2">Prenza</option>
@@ -78,11 +79,11 @@
                     <option value="3">Brgy Uno</option>
                   </select>
                   
-                  <select class="form-select mt-2" aria-label="Default select example">
+                  <select class="form-select mt-2" name="municipality" aria-label="Default select example">
                     <option selected>Select your Municipality</option>
                     <option value="1">Lian</option>
                   </select>
-                  <select class="form-select mt-2" aria-label="Default select example">
+                  <select class="form-select mt-2" name="province" aria-label="Default select example">
                     <option selected>Select your Province</option>
                     <option value="1">Batangas</option>
                   </select>
@@ -91,62 +92,62 @@
                   <!-- this is for total population -->
                   <div class="container mt-4">
                     <h6>CBMB REPORT:</h6>
-                        <input type="number" class="Totalpopulation mb-2" id="usr">
+                        <input type="number" name="totalpopulation" class="Totalpopulation mb-2" id="usr">
                         <label for="usr">Total no. of Population</label>
                         
                         <br>
-                        <input type="number" class="Totalpopulation mb-2" id="noh">
+                        <input type="number" name="nohouses" class="Totalpopulation mb-2" id="noh">
                         <label for="usr">No. of Houses</label>
                         <br>
-                        <input type="number" class="Totalpopulation mb-2" id="nof">
+                        <input type="number" name="nofamilies" class="Totalpopulation mb-2" id="nof">
                         <label for="usr">No. of Families</label>
                         <br>
-                        <input type="number" class="Totalpopulation mb-2" id="noht">
+                        <input type="number" name="housewithtoilet" class="Totalpopulation mb-2" id="noht">
                         <label for="usr">No. of Houses w/Toilet</label>
                         <br>
-                        <input type="number" class="Totalpopulation mb-2" id="sani">
+                        <input type="number" name="sanitary" class="Totalpopulation mb-2" id="sani">
                         <label for="usr">A. Sanitary</label>
                         <br>
-                        <input type="number" class="Totalpopulation mb-2" id="unsani">
+                        <input type="number" name="unsanitary" class="Totalpopulation mb-2" id="unsani">
                         <label for="usr">B. Unsanitary</label>
                         <br>
-                        <input type="number" class="Totalpopulation mb-2" id="nohwot">
+                        <input type="number" name="housewotoilet" class="Totalpopulation mb-2" id="nohwot">
                         <label for="usr">No. of Housed w/o Toilet</label>
                     
-                    <h6>WATER SUPPLY SOURCE:</h6>
-                        <input type="number" class="Totalpopulation mb-2" id="usr">
+                      <h6>WATER SUPPLY SOURCE:</h6>
+                        <input type="number" name="safewater" class="Totalpopulation mb-2" id="usr">
                         <label for="usr">A. Safe Water</label>
                     
                         <br>
-                        <input type="number" class="Totalpopulation mb-2" id="noh">
+                        <input type="number" name="followup" class="Totalpopulation mb-2" id="noh">
                         <label for="usr">B. for follow-up</label>
                         <br>
-                        <input type="number" class="Totalpopulation mb-2" id="nof">
+                        <input type="number" name="danger" class="Totalpopulation mb-2" id="nof">
                         <label for="usr">D. Danger</label>
                         <br>
-                        <input type="number" class="Totalpopulation mb-2" id="noht">
+                        <input type="number" name="mwra" class="Totalpopulation mb-2" id="noht">
                         <label for="usr">No. MWRA [15-45 yrs.old]</label>
                         <br>
-                        <input type="number" class="Totalpopulation mb-2" id="sani">
+                        <input type="number" name="mwramale" class="Totalpopulation mb-2" id="sani">
                         <label for="usr">A. Male</label>
-                        <input type="number" class="Totalpopulation mb-2" id="unsani">
+                        <input type="number" name="mwramalesingle" class="Totalpopulation mb-2" id="unsani">
                         <label for="usr">Single</label>
-                        <input type="number" class="Totalpopulation mb-2" id="unsani">
+                        <input type="number" name="mwramalemarried" class="Totalpopulation mb-2" id="unsani">
                         <label for="usr">Married</label>
                         <br>
-                        <input type="number" class="Totalpopulation mb-2" id="sani">
+                        <input type="number" name="mwrafemale" class="Totalpopulation mb-2" id="sani">
                         <label for="usr">B. Female</label>
-                        <input type="number" class="Totalpopulation mb-2" id="unsani">
+                        <input type="number" name="mwrafemalesingle" class="Totalpopulation mb-2" id="unsani">
                         <label for="usr">Single</label>
-                        <input type="number" class="Totalpopulation mb-2" id="unsani">
+                        <input type="number" name="mwrafemalesingle" class="Totalpopulation mb-2" id="unsani">
                         <label for="usr">Married</label>
                         <br>
-                        <input type="number" class="Totalpopulation mb-2" id="nohwot">
+                        <input type="number" name="noadolescen" class="Totalpopulation mb-2" id="nohwot">
                         <label for="usr">No. of ADOLESCENT [10-25 yrs old]</label>
                         <br>
-                        <input type="number" class="Totalpopulation mb-2" id="unsani">
+                        <input type="number" name="adolescentmale" class="Totalpopulation mb-2" id="unsani">
                         <label for="usr">Male</label>
-                        <input type="number" class="Totalpopulation mb-2" id="unsani">
+                        <input type="number" name="adolescentfemale" class="Totalpopulation mb-2" id="unsani">
                         <label for="usr">Female</label>
                         <br>
                         <input type="number" class="Totalpopulation mb-2" id="unsani">
@@ -204,7 +205,7 @@
                         <label for="usr">G. VASECTOMY</label>
     
     
-                    <h6>STATUS of FP PRACTICES:</h6>
+                      <h6>STATUS of FP PRACTICES:</h6>
                         <input type="number" class="Totalpopulation mb-2" id="unsani">
                         <label for="usr">A. Current User</label>
                         <br>
@@ -234,7 +235,7 @@
                         <input type="number" class="Totalpopulation mb-2" id="unsani">
                         <label for="usr">Female</label>
     
-                    <h6>NUTRITIONAL STATUS (0-6):</h6> 
+                      <h6>NUTRITIONAL STATUS (0-6):</h6> 
                         <input type="number" class="Totalpopulation mb-2" id="unsani">
                         <label for="usr">A. Normal</label>
                         <input type="number" class="Totalpopulation mb-2" id="unsani">
@@ -272,7 +273,7 @@
                         <input type="number" class="Totalpopulation mb-2" id="unsani">
                         <label for="usr">No. Infants Deaths</label>
                           
-                    <h6>Garbage Disposal:</h6> 
+                      <h6>Garbage Disposal:</h6> 
                         <input type="number" class="Totalpopulation mb-2" id="unsani">
                         <label for="usr">A. garbage w/ cover</label>
                         <br>
@@ -285,7 +286,7 @@
                         <input type="number" class="Totalpopulation mb-2" id="unsani">
                         <label for="usr">No. of Garbage</label>
     
-                    <h6>CONTROL OF COMMUNICATION DISEASES:</h6> 
+                      <h6>CONTROL OF COMMUNICATION DISEASES:</h6> 
                         <input type="number" class="Totalpopulation mb-2" id="unsani">
                         <label for="usr">No. of TB patients</label>
                         <br>
@@ -297,6 +298,8 @@
           </div>
         </div>
         </div>
+      </form>
+        
 
                       <!-- THIS IS FOR ANNUAL CATCHMENT POPULATION REPORT -->
         <div id="ACPSReport" class="ACPS">
